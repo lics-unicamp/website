@@ -1,0 +1,21 @@
+---
+title: "Ameaças Cibernéticas & Inteligência Artificial - Os Dois Lados Da Mesma Moeda"
+speaker: "Bruno Guerreiro"
+company: "Interpol"
+country: "br"
+description: "Cibersegurança e IA: Bruno Guerreiro revela como a inteligência artificial transforma ataques cibernéticos e fortalece a defesa."
+eventdate: 2026-05-07T12:00:00-03:00
+duration: "1:00"
+format: "speech"
+inscriptionlink: ""
+ispublic: true
+translationKey: "event_ameacas-ciberneticas-e-ia-bruno-guerreiro"
+---
+
+Preparados para elevar o nível da discussão sobre Cibersegurança e IA? O LICS CyberFest tem a honra de receber Bruno Guerreiro, executivo com 20 anos de trajetória no ecossistema de Segurança da Informação.
+
+Atuando diretamente de Lyon (França) como Cyber Security Operations Center Manager na INTERPOL, e também como CTO e Advisory Leader na Datasec, Bruno é especialista na gestão de operações cibernéticas (SOC/SecOps), resposta a incidentes e inteligência de ameaças. 
+
+Além de sua atuação na linha de frente global, ele possui forte conexão com o ensino, sendo instrutor da GoHacking e das pós-graduações da FIA Business School e FIA Online no passado.
+
+Na sua palestra "Ameaças Cibernéticas & Inteligência Artificial - Os Dois Lados da Mesma Moeda", ele vai compartilhar sua visão estratégica sobre como a IA está transformando simultaneamente o arsenal dos atacantes e o poder de resposta dos times de defesa.
