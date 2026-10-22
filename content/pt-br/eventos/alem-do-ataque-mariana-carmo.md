@@ -1,5 +1,5 @@
 ---
-title: "Além do ataque: Geopolítica e seu Impacto na Inteligência de Ameaças Cibernéticas
+title: "Além do ataque: Geopolítica e seu Impacto na Inteligência de Ameaças Cibernéticas"
 speaker: "Mariana Carmo"
 company: "Apura Cyber Intelligence"
 country: "br"
