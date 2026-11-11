@@ -6,7 +6,7 @@ github: "wheresvortex"
 linkedin: "enzohenrique"
 external: ""
 alumni: true
-points: 1
+points: 0
 areas:
   - "training"
 badges:
