@@ -1,0 +1,16 @@
+<div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
+    <div class="h-100 card bg-military-black cust-alumni">
+        <div class="p-2 card-body d-flex align-items-center">
+            <img class="me-2 rounded" height="50px" width="50px" src="/media/images/members/{{ .Params.github }}.jpg" alt="Profile pic" onerror="this.onerror=null;this.src='/media/images/members/default.jpg';">
+            <div class="flex-grow-1 d-flex flex-column">
+                <h3 class="m-0 ms-1 fs-6 fw-semibold">{{ .Title }}</h3>
+                <div class="ms-1 d-flex flex-wrap">
+                    {{ range .Params.areas }}
+                        {{ partial "areas.html" (dict "context" .) }}
+                    {{ end }}
+                </div>
+            </div>
+            <a class="btn btn-sm btn-outline-primary" href="{{ .Permalink }}">{{ T "members-list-card-btn1" }}</a>
+        </div>
+    </div>
+</div>

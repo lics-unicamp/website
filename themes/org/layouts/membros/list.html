@@ -43,9 +43,9 @@
         {{/* Former members: set `alumni: true` in the member's front matter */}}
         {{ with $alumni }}
             <h2 class="mb-4 text-primary">{{ T "members-list-alumni" }}</h2>
-            <div class="mb-5 row g-4">
+            <div class="mb-5 row g-3">
                 {{ range . }}
-                    {{ partial "member-card.html" . }}
+                    {{ partial "member-card-alumni.html" . }}
                 {{ end }}
             </div>
         {{ end }}
