@@ -1,5 +1,5 @@
 ---
-title: "Brenno Miranda"
+title: "Brenno M."
 description: "Viciado em cibersegurança e leitor de Liev Tolstói nas horas vagas."
 cargo: "agent"
 github: "brennocm"
