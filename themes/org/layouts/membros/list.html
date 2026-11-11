@@ -17,14 +17,27 @@
 <section class="bg-black">
     <div style="height: {{ .Site.Params.spacing_size }};"></div>
     <div class="container">
-        <div class="row g-4">
-            {{ $pages := where .Pages "Params.points" "ne" nil }}
-            {{ $sortedPages := sort $pages ".Params.points" "desc" }}
+        {{ $pages := where .Pages "Params.points" "ne" nil }}
+        {{ $sortedPages := sort $pages ".Params.points" "desc" }}
+        {{/* Areas in hierarchical order; each member is listed under their first area */}}
+        {{ $areas := slice "management" "training" "external_relations" "human_resources" }}
+        {{ range $areas }}
+            {{ $area := . }}
+            {{ $members := slice }}
             {{ range $sortedPages }}
-                {{ partial "member-card.html" . }}
-                
+                {{ if eq (index .Params.areas 0) $area }}
+                    {{ $members = $members | append . }}
+                {{ end }}
             {{ end }}
-        </div>
+            {{ with $members }}
+                <h2 class="mb-4 text-primary">{{ T (printf "members-list-area-%s" $area) }}</h2>
+                <div class="mb-5 row g-4">
+                    {{ range . }}
+                        {{ partial "member-card.html" . }}
+                    {{ end }}
+                </div>
+            {{ end }}
+        {{ end }}
     </div>
     
     <div style="height: {{ .Site.Params.spacing_size }};"></div>
