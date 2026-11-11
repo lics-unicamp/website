@@ -12,23 +12,31 @@ badges:
   - "website_contributor"
 translationKey: "member_brennocm"
 ---
-Olá agente, seja bem-vindo!
+Olá agente. Obrigado por chegar até aqui - Tolstói precisou de mais de mil páginas em *Guerra e Paz*; eu vou tentar ser mais breve.
 
-Se você chegou até aqui, provavelmente é por um destes motivos:
+## Quem Eu Sou
+Sou Engenheiro de Cibersegurança e pesquisador de segurança da informação. O que me move é encontrar o ponto em que um sistema confia demais em alguma coisa - uma permissão IAM esquecida, um oráculo que ninguém monitora, uma assinatura feita no escuro - e construir ferramentas para que esse ponto apareça antes do atacante.
 
-## Você Quer Me Recrutar
-Ótimo! Meu LinkedIn e meu GitHub contam a história completa, mas aqui vai o resumo...
+Desde 2025 trabalho na Serasa Experian com identidade e acesso: automatizo fluxos de IAM assurance, implemento controle de acesso baseado em papéis e mantenho plataformas de governança de identidade (SailPoint) e de acesso privilegiado (CyberArk). Antes disso, passei pelo SOC da Darede (2023 - 2024), com gestão de vulnerabilidades, operação de SIEM, playbooks de resposta a incidentes e serviços de segurança da AWS.
 
-Hoje sou Engenheiro de Cibersegurança na Serasa Experian, onde estou desde julho de 2025. Antes disso, passei mais de um ano do lado defensivo como Analista de Segurança em um SOC na Darede, olhando alertas, investigando incidentes e aprendendo na prática como ataques reais se parecem.
+Estudo Análise e Desenvolvimento de Sistemas na FT/UNICAMP, onde cheguei pelo ProFIS. No caminho juntei algumas certificações: Security+, eJPT, MCRTA, CBP, CCSP-AWS, CNSP, CAP e AWS Cloud Practitioner.
 
-Do outro lado da moeda, tenho a certificação Multi-Cloud Red Team Analyst (MCRTA), da CyberWarFare Labs, e a AWS Certified Cloud Practitioner. Ou seja: gosto de entender como um ambiente é atacado para conseguir defendê-lo melhor - principalmente quando ele mora na nuvem.
+## O Que Eu Construo
+Escrevo ferramentas pequenas, quase sempre em Go ou Rust, para problemas em que eu mesmo esbarrei:
 
-Na academia, sou Tecnólogo em Análise e Desenvolvimento de Sistemas pela FT/UNICAMP (2022 - 2026), caminho que comecei pelo ProFIS, o Programa de Formação Interdisciplinar Superior da UNICAMP (2020 - 2022).
+- [escalint](https://github.com/brennocm/escalint) - mapeia como um principal poderia virar admin em uma conta AWS a partir de um snapshot IAM somente leitura.
+- [blindsight](https://github.com/brennocm/blindsight) - verifica transações de multisig Safe offline, antes de você assinar.
+- [oraclint](https://github.com/brennocm/oraclint) e [oraclewatch](https://github.com/brennocm/oraclewatch) - linter estático e monitoramento para deployments e Data Feeds da Chainlink.
+- [PwnCortex](https://github.com/brennocm/pwncortex) - centraliza um pentest inteiro, com um LLM local que responde perguntas sobre o alvo.
 
-Se quiser conversar, me chame no LinkedIn ou dê uma olhada no meu site.
+O resto (são 16 projetos), além de artigos e write-ups, está no [meu site](https://brennocm.github.io/).
 
-## Você Quer Me Conhecer
-Sou viciado em cibersegurança e, nas horas vagas, leitor de Liev Tolstói. Se você acha que *Guerra e Paz* é longo demais, é porque nunca leu um log de firewall inteiro.
+## Fora Do Expediente
+- **Tor:** opero uma bridge obfs4 do Tor Project. Se alguém está atrás de uma internet censurada, talvez parte do tráfego dessa pessoa passe por uma máquina que eu mantenho.
+- **CTF:** jogo toda semana no Hack The Box com o hackersOnSteroids e publico write-ups de máquinas do HTB e salas do TryHackMe.
+- **Clássicos:** *A Morte de Ivan Ilitch*, *Os Sofrimentos do Jovem Werther*, *Felicidade Conjugal* e *Dom Casmurro*. Ivan Ilitch me lembra que uma vida "correta" e nunca questionada pode ser a mais vazia - o que, pensando bem, também vale para configurações padrão.
 
 ## Você É Da LICS
-Estou na área de Trainning. Se precisar de ajuda com algum material, desafio ou dúvida, é só me chamar nos nossos canais!
+Fui líder da LICS em 2025 - 2026: organizei o LICS OffSec Festival, montei o roadmap de estudos e escrevi materiais de trainning. Também ajudei a construir este site e o scoreboard da liga.
+
+Se travar em algum material, desafio ou máquina, me chame nos nossos canais. E se você já tem o roadmap e ainda não começou, esta é a sua deixa.
