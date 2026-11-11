@@ -8,7 +8,6 @@ external: ""
 points: 0
 areas:
   - "management"
-  - "human_resources"
 badges:
   - ""
 translationKey: "member_NandaB2"
