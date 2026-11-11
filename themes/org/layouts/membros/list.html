@@ -19,6 +19,8 @@
     <div class="container">
         {{ $pages := where .Pages "Params.points" "ne" nil }}
         {{ $sortedPages := sort $pages ".Params.points" "desc" }}
+        {{ $alumni := where $sortedPages "Params.alumni" true }}
+        {{ $sortedPages = where $sortedPages "Params.alumni" "ne" true }}
         {{/* Areas in hierarchical order; each member is listed under their first area */}}
         {{ $areas := slice "management" "training" "external_relations" "human_resources" }}
         {{ range $areas }}
@@ -37,6 +39,15 @@
                     {{ end }}
                 </div>
             {{ end }}
+        {{ end }}
+        {{/* Former members: set `alumni: true` in the member's front matter */}}
+        {{ with $alumni }}
+            <h2 class="mb-4 text-primary">{{ T "members-list-alumni" }}</h2>
+            <div class="mb-5 row g-4">
+                {{ range . }}
+                    {{ partial "member-card.html" . }}
+                {{ end }}
+            </div>
         {{ end }}
     </div>
     
