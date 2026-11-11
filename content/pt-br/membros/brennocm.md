@@ -1,6 +1,6 @@
 ---
 title: "Brenno M."
-description: "Viciado em cibersegurança."
+description: "Engenheiro de cibersegurança apaixonado por tornar a internet um lugar mais seguro."
 cargo: "agent"
 github: "brennocm"
 linkedin: "brennocm"
@@ -12,6 +12,8 @@ badges:
   - "website_contributor"
 translationKey: "member_brennocm"
 ---
+{{< columns >}}
+{{< column >}}
 ## A Vela
 *Mikhail Lermontov, 1832 - tradução livre*
 
@@ -29,7 +31,8 @@ Sob ela, uma corrente mais clara que o azul,\
 Sobre ela, um raio dourado de sol…\
 E ela, rebelde, pede a tempestade,\
 Como se nas tempestades houvesse paz!
-
+{{< /column >}}
+{{< column >}}
 ## Парус
 *Михаил Лермонтов, 1832*
 
@@ -47,3 +50,5 @@ Como se nas tempestades houvesse paz!
 Над ним луч солнца золотой…\
 А он, мятежный, просит бури,\
 Как будто в бурях есть покой!
+{{< /column >}}
+{{< /columns >}}
