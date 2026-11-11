@@ -5,6 +5,7 @@ cargo: "associate"
 github: "wheresvortex"
 linkedin: "enzohenrique"
 external: ""
+alumni: true
 points: 1
 areas:
   - "training"
