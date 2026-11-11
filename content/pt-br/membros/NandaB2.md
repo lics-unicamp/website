@@ -7,7 +7,8 @@ linkedin: "fernanda-alves-239926233"
 external: ""
 points: 0
 areas:
-  - "training"
+  - "management"
+  - "human_resources"
 badges:
   - ""
 translationKey: "member_NandaB2"
