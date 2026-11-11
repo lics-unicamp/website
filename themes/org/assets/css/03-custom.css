@@ -53,6 +53,11 @@ select option:checked {
     transition: filter 250ms;
 }
 
+.cust-alumni .badge {
+    font-size: 0.6em;
+    padding: 0.3em 0.5em;
+}
+
 .cust-alumni:hover,
 .cust-alumni:focus-within {
     opacity: 1;
