@@ -1,6 +1,6 @@
 ---
 title: "Brenno M."
-description: "Viciado em cibersegurança e leitor de Liev Tolstói nas horas vagas."
+description: "Viciado em cibersegurança."
 cargo: "agent"
 github: "brennocm"
 linkedin: "brennocm"

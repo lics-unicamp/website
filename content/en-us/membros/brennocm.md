@@ -1,6 +1,6 @@
 ---
 title: "Brenno M."
-description: "Addicted to cybersecurity and a Liev Tolstoy reader in my spare time."
+description: "Addicted to cybersecurity."
 cargo: "agent"
 github: "brennocm"
 linkedin: "brennocm"
