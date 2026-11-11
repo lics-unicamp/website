@@ -42,6 +42,27 @@ select option:checked {
     color: white;
 }
 
+/* Former members */
+.cust-alumni {
+    opacity: 0.55;
+    transition: opacity 250ms;
+}
+
+.cust-alumni img {
+    filter: grayscale(100%);
+    transition: filter 250ms;
+}
+
+.cust-alumni:hover,
+.cust-alumni:focus-within {
+    opacity: 1;
+}
+
+.cust-alumni:hover img,
+.cust-alumni:focus-within img {
+    filter: none;
+}
+
 /* Blur */
 .cust-blur {
     backdrop-filter: blur(10px);
