@@ -1,6 +1,6 @@
 ---
 title: "Arthur Besseler"
-description: "Profile under construction. More information coming soon."
+description: "More information coming soon."
 cargo: "associate"
 github: ""
 linkedin: ""

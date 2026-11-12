@@ -1,6 +1,6 @@
 ---
 title: "Nathália Farias"
-description: "Perfil em construção. Em breve, mais informações."
+description: "Em breve, mais informações."
 cargo: "associate"
 github: ""
 linkedin: ""
