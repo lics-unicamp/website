@@ -1,14 +1,15 @@
-{{- /* Params: page, area (the section this card is listed under; its badge is omitted) */ -}}
+{{- /* Params: page, area (the section this card is listed under; its badge is omitted), featured (bool: larger card) */ -}}
 {{ $data_index := index site.Data site.Language.Lang }}
 {{ $section := .area }}
+{{ $featured := .featured }}
 {{ with .page }}
 {{ $pending := eq .Description (T "members-pending-description") }}
-<div class="col-12 col-lg-6 col-xxl-4">
+<div class="{{ if $featured }}col-12 col-lg-6 col-xxl-4{{ else }}col-12 col-sm-6 col-lg-4 col-xxl-3{{ end }}">
     <div class="h-100 card bg-military-black cust-member-card">
         <div class="card-body d-flex">
-            {{ partial "member-photo.html" (dict "page" . "size" 90 "class" "me-3") }}
-            <div class="min-w-0 d-flex flex-column">
-                <h3 class="m-0 fs-5 fw-semibold">
+            {{ partial "member-photo.html" (dict "page" . "size" (cond $featured 90 56) "class" "me-3") }}
+            <div class="min-w-0 d-flex flex-column{{ if not $featured }} justify-content-center{{ end }}">
+                <h3 class="m-0 {{ if $featured }}fs-5{{ else }}fs-6{{ end }} fw-semibold">
                     <a class="stretched-link text-reset text-decoration-none" href="{{ .Permalink }}">{{ .Title }}</a>
                 </h3>
                 {{ $extraAreas := slice }}

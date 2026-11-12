@@ -63,10 +63,11 @@
         </nav>
         {{ range $groups }}
             {{ $area := .area }}
+            {{ $featured := in (slice "management" "advisors") $area }}
             <h2 id="area-{{ $area }}" class="mb-4 text-primary cust-anchor">{{ T (printf "members-list-area-%s" $area) }}</h2>
-            <div class="mb-5 row g-4">
+            <div class="mb-5 row {{ if $featured }}g-4{{ else }}g-3{{ end }}">
                 {{ range .members }}
-                    {{ partial "member-card.html" (dict "page" . "area" $area) }}
+                    {{ partial "member-card.html" (dict "page" . "area" $area "featured" $featured) }}
                 {{ end }}
             </div>
         {{ end }}
