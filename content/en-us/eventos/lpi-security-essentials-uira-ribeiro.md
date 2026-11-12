@@ -12,6 +12,8 @@ ispublic: true
 translationKey: "event_lpi-security-essentials-uira-ribeiro"
 ---
 
+**This talk will be held in Portuguese**
+
 This talk is part of LICS ENIGMA.
 
 We are honored to welcome Uirá Ribeiro, Chair of the Board of Directors at the Linux Professional Institute (LPI), CEO at Certificação Linux, and a renowned DevOps and Linux Expert.

@@ -12,6 +12,8 @@ ispublic: true
 translationKey: "event_hacking-the-hackers-assaf-morag"
 ---
 
+**Esta palestra ocorrerá em inglês**
+
 Esta palestra faz parte do LICS ENIGMA.
 
 Temos a honra de receber Assaf Morag, renomado pesquisador de segurança e consultor de Threat Intelligence, com um histórico de destaque na caça a malwares avançados, botnets e operações complexas de cibercrime.

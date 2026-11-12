@@ -12,6 +12,8 @@ ispublic: true
 translationKey: "event_seguranca-cibernetica-quantica-jullyano-lino"
 ---
 
+**This talk will be held in Portuguese**
+
 This talk is part of LICS ENIGMA.
 
 We are honored to welcome Jullyano Lino, an IBM Qiskit Advocate, Cybersecurity Consultant at the Inter-American Development Bank (IADB), and a specialist in quantum technologies.

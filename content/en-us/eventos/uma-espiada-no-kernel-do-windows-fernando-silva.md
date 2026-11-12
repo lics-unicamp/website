@@ -12,6 +12,8 @@ ispublic: true
 translationKey: "event_uma-espiada-no-kernel-do-windows-fernando-silva"
 ---
 
+**This talk will be held in Portuguese**
+
 This talk is part of LICS ENIGMA.
 
 We are honored to welcome Fernando Silva, Senior Windows Kernel Engineer, Founder of DriverEntry Kernel Development, and an expert with over 20 years of experience in low-level C/C++ software.

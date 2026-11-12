@@ -12,6 +12,8 @@ ispublic: true
 translationKey: "event_ai-security-considerations-yuri-diogenes"
 ---
 
+**This talk will be held in Portuguese**
+
 This talk is part of LICS ENIGMA.
 
 We are honored to welcome Yuri Diógenes, an industry titan with over 30 years of experience in IT and cybersecurity leadership. With a PhD in Cybersecurity Leadership, Yuri is a University Professor at The University of Texas at Dallas and EC-Council University, shaping the next generation of professionals.

@@ -12,6 +12,8 @@ ispublic: true
 translationKey: "event_adventures-of-wallet-hacking-joe-grand"
 ---
 
+**Esta palestra ocorrerá em inglês**
+
 Esta palestra faz parte do LICS ENIGMA.
 
 Temos a honra de receber Joe Grand (também conhecido como Kingpin), lendário hardware hacker, engenheiro de computação e ex-membro do icônico coletivo hacker L0pht Heavy Industries.
