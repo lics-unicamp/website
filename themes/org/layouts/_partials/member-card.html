@@ -1,5 +1,4 @@
 {{- /* Params: page, area (the section this card is listed under; its badge is omitted), featured (bool: larger card) */ -}}
-{{ $data_index := index site.Data site.Language.Lang }}
 {{ $section := .area }}
 {{ $featured := .featured }}
 {{ with .page }}
@@ -24,16 +23,6 @@
                     <div class="mt-2 d-flex flex-wrap">
                         {{ range . }}
                             {{ partial "areas.html" (dict "context" .) }}
-                        {{ end }}
-                    </div>
-                {{ end }}
-                {{ $badges := slice }}
-                {{ range .Params.badges }}{{ if ne . "" }}{{ $badges = $badges | append . }}{{ end }}{{ end }}
-                {{ with first 5 $badges }}
-                    <div class="d-flex">
-                        {{ range . }}
-                            {{ $badge := index $data_index.badges . }}
-                            <img class="me-1" height="25" width="25" src="/media/images/badges/{{ $badge.icon }}" title="{{ $badge.title }}" alt="{{ $badge.title }}">
                         {{ end }}
                     </div>
                 {{ end }}
