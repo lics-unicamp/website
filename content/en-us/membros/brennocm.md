@@ -1,42 +1,54 @@
 ---
-title: "Brenno Miranda"
-description: "Addicted to cybersecurity and a Liev Tolstoy reader in my spare time."
+title: "Brenno M."
+description: "Cybersecurity engineer passionate about making the internet a safer place."
 cargo: "agent"
 github: "brennocm"
 linkedin: "brennocm"
 external: "https://brennocm.github.io/"
-points: 1
+points: 0
 areas:
   - "training"
 badges:
   - "website_contributor"
 translationKey: "member_brennocm"
 ---
-## Experiência
-### Security Engineer 
-Serasa Experian
-- Duration: Jul 2025 - Present
+{{< columns >}}
+{{< column >}}
+## The Sail
+*Mikhail Lermontov, 1832 - free translation*
 
-### Cyber Defense Analyst | SOC
-Darede - Da Rede a Nuvem
-- Duration: May 2023 - July 2024
+A lonely sail is gleaming white\
+Amid the blue mist of the sea!…\
+What does it seek in distant lands?\
+What did it leave on native shores?…
 
-## Education
-### Technologist in Systems Analysis and Development
-- Institution: FT/UNICAMP
-- Duration: 2022 - 2026
+The waves are playing, the wind whistles,\
+The mast bends low and creaks…\
+Alas! It is not seeking happiness,\
+Nor is it fleeing happiness!
 
-### Interdisciplinary Higher Education Program (ProFIS)
-- Institution: UNICAMP
-- Duration: 2020 - 2022
+Beneath it, a current brighter than azure,\
+Above it, a golden ray of sun…\
+Yet it, rebellious, begs for storms,\
+As if in storms there could be peace!
+{{< /column >}}
+{{< column >}}
+## Парус
+*Михаил Лермонтов, 1832*
 
-# Certifications
-### MCRTA
-Multi-Cloud Red Team Analyst (MCRTA)
-- Issued: 2024
-- Issuing Organization: CyberWarFare Labs
+Белеет парус одинокой\
+В тумане моря голубом!..\
+Что ищет он в стране далекой?\
+Что кинул он в краю родном?..
 
-### AWS CCP
-AWS Certified Cloud Practitioner
-- Issued: 2023
-- Issuing Organization: Amazon Web Services (AWS)
+Играют волны — ветер свищет,\
+И мачта гнется и скрыпит…\
+Увы! он счастия не ищет\
+И не от счастия бежит!
+
+Под ним струя светлей лазури,\
+Над ним луч солнца золотой…\
+А он, мятежный, просит бури,\
+Как будто в бурях есть покой!
+{{< /column >}}
+{{< /columns >}}

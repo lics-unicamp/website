@@ -5,7 +5,7 @@ cargo: "associate"
 github: "VitorPortinari"
 linkedin: "vitor-d-8a2307274"
 external: ""
-points: 1
+points: 0
 areas:
   - "management"
 badges:

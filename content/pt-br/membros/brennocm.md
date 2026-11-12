@@ -1,42 +1,54 @@
 ---
-title: "Brenno Miranda"
-description: "Viciado em cibersegurança e leitor de Liev Tolstói nas horas vagas."
+title: "Brenno M."
+description: "Engenheiro de cibersegurança apaixonado por tornar a internet um lugar mais seguro."
 cargo: "agent"
 github: "brennocm"
 linkedin: "brennocm"
 external: "https://brennocm.github.io/"
-points: 1
+points: 0
 areas:
   - "training"
 badges:
   - "website_contributor"
 translationKey: "member_brennocm"
 ---
-## Experiência
-### Engenheiro de Cibersegurança 
-Serasa Experian
-- Duração: Jul 2025 - Presente
+{{< columns >}}
+{{< column >}}
+## A Vela
+*Mikhail Lermontov, 1832 - tradução livre*
 
-### Analista de Segurança Defensiva | SOC
-Darede - Da Rede à Nuvem
-- Duração: Mai 2023 - Jul 2024
+Alveja uma vela solitária\
+Na névoa azul do mar!…\
+O que busca ela em terra distante?\
+O que deixou em sua terra natal?…
 
-## Formação
-### Técnólogo em Análise e Desenvolvimento de Sistemas
-- Instituição: FT/UNICAMP
-- Duração: 2022 - 2026
+Brincam as ondas, o vento assobia,\
+E o mastro se curva e range…\
+Ai! Ela não busca a felicidade,\
+Nem da felicidade foge!
 
-### Programa de Formação Interdisciplinar Superior (ProFIS)
-- Escola: UNICAMP
-- Duração: 2020 - 2022
+Sob ela, uma corrente mais clara que o azul,\
+Sobre ela, um raio dourado de sol…\
+E ela, rebelde, pede a tempestade,\
+Como se nas tempestades houvesse paz!
+{{< /column >}}
+{{< column >}}
+## Парус
+*Михаил Лермонтов, 1832*
 
-# Certificações
-### MCRTA
-Multi-Cloud Red Team Analyst (MCRTA)
-- Emissão: 2024
-- Empresa emissora: CyberWarFare Labs
+Белеет парус одинокой\
+В тумане моря голубом!..\
+Что ищет он в стране далекой?\
+Что кинул он в краю родном?..
 
-### AWS CCP
-AWS Certified Cloud Practitioner
-- Emissão: 2023
-- Empresa emissora: Amazon Web Services (AWS)
+Играют волны — ветер свищет,\
+И мачта гнется и скрыпит…\
+Увы! он счастия не ищет\
+И не от счастия бежит!
+
+Под ним струя светлей лазури,\
+Над ним луч солнца золотой…\
+А он, мятежный, просит бури,\
+Как будто в бурях есть покой!
+{{< /column >}}
+{{< /columns >}}

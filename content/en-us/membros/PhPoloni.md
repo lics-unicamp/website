@@ -5,6 +5,7 @@ cargo: "associate"
 github: "PhPoloni"
 linkedin: "phillipi-poloni-0b75a7306"
 external: ""
+alumni: true
 points: 0
 areas:
   - "management"
