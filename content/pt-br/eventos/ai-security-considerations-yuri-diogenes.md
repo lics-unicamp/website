@@ -1,7 +1,7 @@
 ---
 title: "AI Security Considerations"
 speaker: "Yuri Diógenes"
-company: "The University of Texas at Dallas"
+company: "CrowdStrike"
 country: "br"
 description: "Yuri Diógenes aborda os desafios da IA agêntica, gestão de riscos, segurança centrada em identidade e governança de IA sem frear a inovação."
 eventdate: 2026-11-30T19:00:00-03:00
