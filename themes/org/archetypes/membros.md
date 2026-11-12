@@ -9,6 +9,7 @@ points: 0
 areas:
 # Mantenha apenas as áreas das quais você participa
   - "management"
+  - "advisors"
   - "trainning"
   - "external_relations"
   - "human_resources"

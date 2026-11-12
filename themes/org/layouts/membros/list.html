@@ -22,7 +22,7 @@
         {{ $alumni := where $sortedPages "Params.alumni" true }}
         {{ $sortedPages = where $sortedPages "Params.alumni" "ne" true }}
         {{/* Areas in hierarchical order; each member is listed under their first area */}}
-        {{ $areas := slice "management" "training" "external_relations" "human_resources" }}
+        {{ $areas := slice "management" "advisors" "training" "external_relations" "human_resources" }}
         {{ range $areas }}
             {{ $area := . }}
             {{ $members := slice }}
