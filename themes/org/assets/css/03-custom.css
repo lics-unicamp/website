@@ -3,6 +3,18 @@
     color: var(--bs-white);
 }
 
+/* Browser surfaces in the brand color */
+::selection {
+    background-color: var(--bs-primary);
+    color: var(--bs-black);
+}
+
+a:not(.btn):focus-visible {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
 /* Navbar */
 .navbar .dropdown:hover .dropdown-menu {
     display: block;
