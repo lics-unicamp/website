@@ -5,6 +5,7 @@ cargo: "associate"
 github: "GiovanniBrandao"
 linkedin: "giovanni-brandao"
 external: ""
+alumni: true
 points: 0
 areas:
   - "training"
