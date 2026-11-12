@@ -7,7 +7,8 @@ linkedin: ""
 external: ""
 points: 0
 areas:
-  - "training"
+  - "management"
+  - "vice_president"
 badges:
   - ""
 translationKey: "member_giovanaoliveira"

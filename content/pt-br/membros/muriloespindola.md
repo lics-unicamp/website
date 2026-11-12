@@ -7,6 +7,7 @@ linkedin: ""
 external: ""
 points: 0
 areas:
+  - "management"
   - "human_resources"
 badges:
   - ""

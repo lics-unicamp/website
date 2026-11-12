@@ -7,6 +7,7 @@ linkedin: "sara-justi-cardoso-3a5799268"
 external: ""
 points: 0
 areas:
+  - "management"
   - "external_relations"
 badges:
   - ""
