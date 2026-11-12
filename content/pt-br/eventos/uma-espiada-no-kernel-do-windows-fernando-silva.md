@@ -7,7 +7,7 @@ description: "Fernando Silva explica a arquitetura do sistema operacional, o fun
 eventdate: 2026-11-23T19:00:00-03:00
 duration: "1:00"
 format: "speech"
-inscriptionlink: "https://lnkd.in/dJRnyxnG"
+inscriptionlink: ""
 ispublic: true
 translationKey: "event_uma-espiada-no-kernel-do-windows-fernando-silva"
 ---
