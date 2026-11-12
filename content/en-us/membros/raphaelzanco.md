@@ -7,7 +7,7 @@ linkedin: "raphael-zanco"
 external: ""
 points: 0
 areas:
-  - "management"
+  - "advisors"
 badges:
   - ""
 translationKey: "member_zanco"

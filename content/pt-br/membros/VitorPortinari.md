@@ -7,7 +7,7 @@ linkedin: "vitor-d-8a2307274"
 external: ""
 points: 0
 areas:
-  - "management"
+  - "advisors"
 badges:
   - ""
 translationKey: "member_VitorPortinari"
