@@ -1,0 +1,13 @@
+{{- /* Member photo resolved at build time; falls back to an initials avatar. Params: page, size (px), class */ -}}
+{{- $page := .page -}}
+{{- $path := printf "media/images/members/%s.jpg" $page.Params.github -}}
+{{- if and $page.Params.github (fileExists (printf "static/%s" $path)) -}}
+<img class="{{ .class }} rounded cust-member-photo" width="{{ .size }}" height="{{ .size }}" src="/{{ $path }}" alt="" loading="lazy" decoding="async">
+{{- else -}}
+{{- $words := split (trim $page.Title " ") " " -}}
+{{- $initials := substr (index $words 0) 0 1 -}}
+{{- if gt (len $words) 1 -}}
+{{- $initials = printf "%s%s" $initials (substr (index $words (sub (len $words) 1)) 0 1) -}}
+{{- end -}}
+<span class="{{ .class }} rounded cust-avatar" style="--avatar-size: {{ .size }}px;" aria-hidden="true">{{ upper $initials }}</span>
+{{- end -}}

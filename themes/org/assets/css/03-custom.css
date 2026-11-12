@@ -42,6 +42,28 @@ select option:checked {
     color: white;
 }
 
+/* Member photo and initials avatar */
+.cust-member-photo {
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.cust-avatar {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    background-color: var(--bs-secondary);
+    color: var(--bs-primary);
+    font-size: calc(var(--avatar-size) * 0.36);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    user-select: none;
+}
+
 /* Former members */
 .cust-alumni {
     opacity: 0.55;
