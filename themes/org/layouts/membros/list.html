@@ -31,6 +31,22 @@
                     {{ $members = $members | append . }}
                 {{ end }}
             {{ end }}
+            {{/* Board order: president, vice president, then the other directors */}}
+            {{ if eq $area "management" }}
+                {{ $president := slice }}
+                {{ $vice := slice }}
+                {{ $directors := slice }}
+                {{ range $members }}
+                    {{ if in .Params.areas "president" }}
+                        {{ $president = $president | append . }}
+                    {{ else if in .Params.areas "vice_president" }}
+                        {{ $vice = $vice | append . }}
+                    {{ else }}
+                        {{ $directors = $directors | append . }}
+                    {{ end }}
+                {{ end }}
+                {{ $members = $president | append $vice | append $directors }}
+            {{ end }}
             {{ with $members }}
                 <h2 class="mb-4 text-primary">{{ T (printf "members-list-area-%s" $area) }}</h2>
                 <div class="mb-5 row g-4">
