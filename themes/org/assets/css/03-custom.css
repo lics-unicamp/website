@@ -64,6 +64,30 @@ select option:checked {
     user-select: none;
 }
 
+/* Member card: the whole card links to the profile */
+.cust-member-card {
+    transition: background-color 150ms cubic-bezier(0.23, 1, 0.32, 1), border-color 150ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cust-member-card:hover {
+    background-color: var(--bs-secondary) !important;
+}
+
+.cust-member-card:focus-within {
+    border-color: var(--bs-primary);
+}
+
+.cust-member-card .stretched-link:focus-visible {
+    outline: none;
+}
+
+.cust-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 /* Former members */
 .cust-alumni {
     opacity: 0.55;
