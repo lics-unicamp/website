@@ -8,7 +8,7 @@
     <div class="h-100 card bg-military-black cust-member-card">
         <div class="card-body d-flex{{ if not $featured }} align-items-center{{ end }}">
             {{ partial "member-photo.html" (dict "page" . "size" (cond $featured 90 56) "class" "me-3") }}
-            <div class="min-w-0 d-flex flex-column">
+            <div class="min-w-0 flex-grow-1 d-flex flex-column">
                 <h3 class="m-0 {{ if $featured }}fs-5{{ else }}fs-6{{ end }} fw-semibold">
                     <a class="stretched-link text-reset text-decoration-none" href="{{ .Permalink }}">{{ .Title }}</a>
                 </h3>
@@ -41,6 +41,8 @@
                 {{ if and $featured (not $pending) }}
                     <p class="mt-2 mb-0 small cust-clamp-3">{{ .Description }}</p>
                 {{ end }}
+                {{/* Visible cue that the card opens the member's own profile; the name link already announces it */}}
+                <span class="{{ if $featured }}mt-auto pt-2{{ else }}mt-1{{ end }} small text-primary cust-profile-cue" aria-hidden="true">{{ T "members-list-card-btn1" }}</span>
             </div>
         </div>
     </div>

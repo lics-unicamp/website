@@ -93,6 +93,12 @@ select option:checked {
     outline: none;
 }
 
+.cust-member-card:hover .cust-profile-cue,
+.cust-member-card:focus-within .cust-profile-cue {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 .cust-clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
