@@ -7,7 +7,7 @@ linkedin: ""
 external: ""
 points: 0
 areas:
-  - "training"
+  - "human_resources"
 badges:
   - ""
 translationKey: "member_eric-less"
