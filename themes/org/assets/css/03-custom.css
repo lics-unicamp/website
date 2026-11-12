@@ -99,13 +99,6 @@ select option:checked {
     text-underline-offset: 3px;
 }
 
-.cust-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
 /* Members list: area shortcuts */
 .cust-anchor {
     scroll-margin-top: 7rem;

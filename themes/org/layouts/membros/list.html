@@ -63,11 +63,10 @@
         </nav>
         {{ range $groups }}
             {{ $area := .area }}
-            {{ $featured := eq $area "management" }}
             <h2 id="area-{{ $area }}" class="mb-4 text-primary cust-anchor">{{ T (printf "members-list-area-%s" $area) }}</h2>
-            <div class="mb-5 row {{ if $featured }}g-4{{ else }}g-3{{ end }}">
+            <div class="mb-5 row g-3">
                 {{ range .members }}
-                    {{ partial "member-card.html" (dict "page" . "area" $area "featured" $featured) }}
+                    {{ partial "member-card.html" (dict "page" . "area" $area) }}
                 {{ end }}
             </div>
         {{ end }}

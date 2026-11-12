@@ -1,14 +1,12 @@
-{{- /* Params: page, area (the section this card is listed under; its badge is omitted), featured (bool: larger card) */ -}}
+{{- /* Params: page, area (the section this card is listed under; its badge is omitted) */ -}}
 {{ $section := .area }}
-{{ $featured := .featured }}
 {{ with .page }}
-{{ $pending := eq .Description (T "members-pending-description") }}
-<div class="{{ if $featured }}col-12 col-lg-6 col-xxl-4{{ else }}col-12 col-sm-6 col-lg-4 col-xxl-3{{ end }}">
+<div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
     <div class="h-100 card bg-military-black cust-member-card">
-        <div class="card-body d-flex{{ if not $featured }} align-items-center{{ end }}">
-            {{ partial "member-photo.html" (dict "page" . "size" (cond $featured 90 56) "class" "me-3") }}
+        <div class="card-body d-flex align-items-center">
+            {{ partial "member-photo.html" (dict "page" . "size" 56 "class" "me-3") }}
             <div class="min-w-0 flex-grow-1 d-flex flex-column">
-                <h3 class="m-0 {{ if $featured }}fs-5{{ else }}fs-6{{ end }} fw-semibold">
+                <h3 class="m-0 fs-6 fw-semibold">
                     <a class="stretched-link text-reset text-decoration-none" href="{{ .Permalink }}">{{ .Title }}</a>
                 </h3>
                 {{ $extraAreas := slice }}
@@ -26,12 +24,8 @@
                         {{ end }}
                     </div>
                 {{ end }}
-                {{/* Descriptions only on featured cards, so compact rows keep the same height */}}
-                {{ if and $featured (not $pending) }}
-                    <p class="mt-2 mb-0 small cust-clamp-3">{{ .Description }}</p>
-                {{ end }}
                 {{/* Visible cue that the card opens the member's own profile; the name link already announces it */}}
-                <span class="{{ if $featured }}mt-auto pt-2{{ else }}mt-1{{ end }} small text-primary cust-profile-cue" aria-hidden="true">{{ T "members-list-card-btn1" }}</span>
+                <span class="mt-1 small text-primary cust-profile-cue" aria-hidden="true">{{ T "members-list-card-btn1" }}</span>
             </div>
         </div>
     </div>
