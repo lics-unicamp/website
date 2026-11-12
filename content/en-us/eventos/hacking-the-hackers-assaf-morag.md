@@ -2,7 +2,7 @@
 title: "Hacking the Hackers Who Hack Hackers: Supply-Chain Backdoors in Underground VPN"
 speaker: "Assaf Morag"
 company: "Flare"
-country: ""
+country: "il"
 description: "Assaf Morag replicates his DEF CON 34 talk, revealing how supply-chain backdoors are deployed inside underground VPN infrastructures, compromising the hackers themselves."
 eventdate: 2026-11-05T18:00:00-03:00
 duration: "1:00"

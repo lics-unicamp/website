@@ -2,7 +2,7 @@
 title: "A Peek into the Windows Kernel"
 speaker: "Fernando Silva"
 company: "DriverEntry Kernel Development"
-country: ""
+country: "br"
 description: "Fernando Silva breaks down OS architecture, driver mechanics, and how security operates directly at Ring 0."
 eventdate: 2026-11-23T19:00:00-03:00
 duration: "1:00"
