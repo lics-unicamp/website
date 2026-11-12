@@ -8,6 +8,7 @@ external: ""
 points: 0
 areas:
   - "advisors"
+  - "training"
 badges:
   - "website_contributor"
 translationKey: "member_cibero42"
