@@ -7,7 +7,7 @@ linkedin: "gbrms"
 external: ""
 points: 0
 areas:
-  - "management"
+  - "advisors"
 badges:
   - ""
 translationKey: "member_kiev"
