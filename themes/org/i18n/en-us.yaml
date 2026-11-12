@@ -17,9 +17,11 @@ members-list-s1-p1: The members of LICS are dedicated students passionate about 
 members-list-s1-btn1: Join the team  
 members-list-card-btn1: View profile  
 members-list-area-management: Board
+members-list-area-advisors: Advisors
 members-list-area-training: Training
 members-list-area-external_relations: External Relations
 members-list-area-human_resources: Human Resources
+members-list-area-marketing: Marketing
 members-list-alumni: Former Members
 
 # Single  
@@ -77,6 +79,10 @@ partial-areas-op1: Training
 partial-areas-op2: Ext Relations  
 partial-areas-op3: HR  
 partial-areas-op4: Board  
+partial-areas-op5: Advisor  
+partial-areas-op6: Marketing  
+partial-areas-op7: President  
+partial-areas-op8: Vice President  
 
 # Roles  
 partial-roles-op1: Challenger  

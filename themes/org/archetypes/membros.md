@@ -9,9 +9,14 @@ points: 0
 areas:
 # Mantenha apenas as áreas das quais você participa
   - "management"
+  - "advisors"
   - "trainning"
   - "external_relations"
   - "human_resources"
+  - "marketing"
+# Cargos da diretoria (use junto com "management")
+  - "president"
+  - "vice_president"
 badges:
 # A ser preenchido pelo RH
   - "none"

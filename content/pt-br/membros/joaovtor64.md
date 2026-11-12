@@ -7,6 +7,7 @@ linkedin: "joão-vitor-tito-da-paixão-6660b034b"
 external: ""
 points: 0
 areas:
+  - "management"
   - "training"
 badges:
   - ""

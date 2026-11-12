@@ -8,6 +8,7 @@ external: ""
 points: 0
 areas:
   - "management"
+  - "president"
 badges:
   - ""
 translationKey: "member_NandaB2"

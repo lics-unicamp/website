@@ -7,6 +7,7 @@ linkedin: "gbrms"
 external: ""
 points: 0
 areas:
+  - "advisors"
   - "management"
 badges:
   - ""

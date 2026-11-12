@@ -9,11 +9,15 @@
                         <div class="d-flex flex-column justify-content-between">
                             <h3 class="m-0 ms-1 fs-5 fw-semibold">{{ .Title }}</h3>
                             <div class="ms-1 d-flex flex-wrap">
+                                {{/* Points badge hidden for now:
                                 <span class="me-1 mb-1 badge bg-white text-black" data-bs-toggle="tooltip" title='{{ T "members-single-pts-description" }}'>{{ .Params.points }}&nbsp;{{ T "members-single-pts" }}</span>
+                                */}}
                                 {{ range .Params.areas}}
                                     {{ partial "areas.html" (dict "context" .) }}
                                 {{ end }}
+                                {{/* Role badge (associate, agent...) hidden for now:
                                 {{ partial "roles.html" (dict "context" .Params.cargo) }}
+                                */}}
                             </div>
                             <div class="d-flex" style="height: 30px;">
                                 {{ range first 5 .Params.badges }}

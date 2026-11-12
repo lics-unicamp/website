@@ -17,9 +17,11 @@ members-list-s1-p1: Os membros da LICS são estudantes dedicados e apaixonados p
 members-list-s1-btn1: Juntar-se a equipe
 members-list-card-btn1: Ver perfil
 members-list-area-management: Diretoria
+members-list-area-advisors: Conselheiros
 members-list-area-training: Trainning
 members-list-area-external_relations: Relações Exteriores
 members-list-area-human_resources: Recursos Humanos
+members-list-area-marketing: Marketing
 members-list-alumni: Ex-membros
 
 # Single
@@ -78,6 +80,10 @@ partial-areas-op1: Trainning
 partial-areas-op2: Rel Exteriores
 partial-areas-op3: RH
 partial-areas-op4: Diretoria
+partial-areas-op5: Conselheiro
+partial-areas-op6: Marketing
+partial-areas-op7: Presidente
+partial-areas-op8: Vice-presidente
 
 # Roles
 partial-roles-op1: Desafiante

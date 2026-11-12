@@ -7,6 +7,7 @@ linkedin: "vitor-d-8a2307274"
 external: ""
 points: 0
 areas:
+  - "advisors"
   - "management"
 badges:
   - ""
