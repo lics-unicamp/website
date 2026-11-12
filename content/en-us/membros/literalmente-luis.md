@@ -1,6 +1,6 @@
 ---
 title: "Luis B."
-description: "todo"
+description: "Profile under construction. More information coming soon."
 cargo: "associate"
 github: "literalmente-luis"
 linkedin: "luisgsb"
