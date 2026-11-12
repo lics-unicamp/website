@@ -15,7 +15,9 @@
                             {{ range .Params.areas}}
                                 {{ partial "areas.html" (dict "context" .) }}
                             {{ end }}
+                            {{/* Role badge (associate, agent...) hidden for now:
                             {{ partial "roles.html" (dict "context" .Params.cargo) }}
+                            */}}
                         </div>
                         <p class="flex-grow-1" style="max-width: 500px;">{{ .Description }}</p>
                         <p class="m-0 fs-3">
