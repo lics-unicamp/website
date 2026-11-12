@@ -13,6 +13,10 @@ areas:
   - "trainning"
   - "external_relations"
   - "human_resources"
+  - "marketing"
+# Cargos da diretoria (use junto com "management")
+  - "president"
+  - "vice_president"
 badges:
 # A ser preenchido pelo RH
   - "none"
