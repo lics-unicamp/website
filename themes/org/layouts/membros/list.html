@@ -23,6 +23,7 @@
         {{ $sortedPages = where $sortedPages "Params.alumni" "ne" true }}
         {{/* Areas in hierarchical order; each member is listed under their first area */}}
         {{ $areas := slice "management" "advisors" "training" "external_relations" "human_resources" "marketing" }}
+        {{ $groups := slice }}
         {{ range $areas }}
             {{ $area := . }}
             {{ $members := slice }}
@@ -48,17 +49,30 @@
                 {{ $members = $president | append $vice | append $directors }}
             {{ end }}
             {{ with $members }}
-                <h2 class="mb-4 text-primary">{{ T (printf "members-list-area-%s" $area) }}</h2>
-                <div class="mb-5 row g-4">
-                    {{ range . }}
-                        {{ partial "member-card.html" (dict "page" . "area" $area) }}
-                    {{ end }}
-                </div>
+                {{ $groups = $groups | append (dict "area" $area "members" .) }}
             {{ end }}
+        {{ end }}
+        {{/* Shortcuts to each area, with its member count */}}
+        <nav class="mb-5 d-flex flex-wrap gap-2" aria-label="{{ T "members-list-nav-label" }}">
+            {{ range $groups }}
+                <a class="btn btn-sm btn-outline-primary" href="#area-{{ .area }}">{{ T (printf "members-list-area-%s" .area) }}<span class="ms-2 cust-count">{{ len .members }}</span></a>
+            {{ end }}
+            {{ with $alumni }}
+                <a class="btn btn-sm btn-outline-secondary text-white" href="#area-alumni">{{ T "members-list-alumni" }}<span class="ms-2 cust-count">{{ len . }}</span></a>
+            {{ end }}
+        </nav>
+        {{ range $groups }}
+            {{ $area := .area }}
+            <h2 id="area-{{ $area }}" class="mb-4 text-primary cust-anchor">{{ T (printf "members-list-area-%s" $area) }}</h2>
+            <div class="mb-5 row g-4">
+                {{ range .members }}
+                    {{ partial "member-card.html" (dict "page" . "area" $area) }}
+                {{ end }}
+            </div>
         {{ end }}
         {{/* Former members: set `alumni: true` in the member's front matter */}}
         {{ with $alumni }}
-            <h2 class="mb-4 text-primary">{{ T "members-list-alumni" }}</h2>
+            <h2 id="area-alumni" class="mb-4 text-primary cust-anchor">{{ T "members-list-alumni" }}</h2>
             <div class="mb-5 row g-3">
                 {{ range . }}
                     {{ partial "member-card-alumni.html" . }}

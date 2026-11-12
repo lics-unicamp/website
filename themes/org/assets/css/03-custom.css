@@ -88,6 +88,16 @@ select option:checked {
     overflow: hidden;
 }
 
+/* Members list: area shortcuts */
+.cust-anchor {
+    scroll-margin-top: 7rem;
+}
+
+.cust-count {
+    font-variant-numeric: tabular-nums;
+    opacity: 0.75;
+}
+
 /* Former members */
 .cust-alumni {
     opacity: 0.55;
