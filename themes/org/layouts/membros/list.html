@@ -63,7 +63,7 @@
         </nav>
         {{ range $groups }}
             {{ $area := .area }}
-            {{ $featured := in (slice "management" "advisors") $area }}
+            {{ $featured := eq $area "management" }}
             <h2 id="area-{{ $area }}" class="mb-4 text-primary cust-anchor">{{ T (printf "members-list-area-%s" $area) }}</h2>
             <div class="mb-5 row {{ if $featured }}g-4{{ else }}g-3{{ end }}">
                 {{ range .members }}
