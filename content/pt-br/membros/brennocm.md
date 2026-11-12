@@ -7,7 +7,7 @@ linkedin: "brennocm"
 external: "https://brennocm.github.io/"
 points: 0
 areas:
-  - "advisors"
+  - "training"
 badges:
   - "website_contributor"
 translationKey: "member_brennocm"
