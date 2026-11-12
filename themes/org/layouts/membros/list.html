@@ -35,7 +35,7 @@
                 <h2 class="mb-4 text-primary">{{ T (printf "members-list-area-%s" $area) }}</h2>
                 <div class="mb-5 row g-4">
                     {{ range . }}
-                        {{ partial "member-card.html" . }}
+                        {{ partial "member-card.html" (dict "page" . "area" $area) }}
                     {{ end }}
                 </div>
             {{ end }}

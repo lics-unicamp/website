@@ -1,4 +1,7 @@
+{{- /* Params: page, area (the section this card is listed under; its badge is omitted) */ -}}
 {{ $data_index := index site.Data site.Language.Lang }}
+{{ $section := .area }}
+{{ with .page }}
 {{ $pending := eq .Description (T "members-pending-description") }}
 <div class="col-12 col-lg-6 col-xxl-4">
     <div class="h-100 card bg-military-black cust-member-card">
@@ -8,17 +11,21 @@
                 <h3 class="m-0 fs-5 fw-semibold">
                     <a class="stretched-link text-reset text-decoration-none" href="{{ .Permalink }}">{{ .Title }}</a>
                 </h3>
-                <div class="mt-2 d-flex flex-wrap">
-                    {{/* Points badge hidden for now:
-                    <span class="me-1 mb-1 badge bg-white text-black" data-bs-toggle="tooltip" title='{{ T "members-single-pts-description" }}'>{{ .Params.points }}&nbsp;{{ T "members-single-pts" }}</span>
-                    */}}
-                    {{ range .Params.areas}}
-                        {{ partial "areas.html" (dict "context" .) }}
-                    {{ end }}
-                    {{/* Role badge (associate, agent...) hidden for now:
-                    {{ partial "roles.html" (dict "context" .Params.cargo) }}
-                    */}}
-                </div>
+                {{ $extraAreas := slice }}
+                {{ range .Params.areas }}{{ if ne . $section }}{{ $extraAreas = $extraAreas | append . }}{{ end }}{{ end }}
+                {{/* Points badge hidden for now:
+                <span class="me-1 mb-1 badge bg-white text-black" data-bs-toggle="tooltip" title='{{ T "members-single-pts-description" }}'>{{ .Params.points }}&nbsp;{{ T "members-single-pts" }}</span>
+                */}}
+                {{/* Role badge (associate, agent...) hidden for now:
+                {{ partial "roles.html" (dict "context" .Params.cargo) }}
+                */}}
+                {{ with $extraAreas }}
+                    <div class="mt-2 d-flex flex-wrap">
+                        {{ range . }}
+                            {{ partial "areas.html" (dict "context" .) }}
+                        {{ end }}
+                    </div>
+                {{ end }}
                 {{ $badges := slice }}
                 {{ range .Params.badges }}{{ if ne . "" }}{{ $badges = $badges | append . }}{{ end }}{{ end }}
                 {{ with first 5 $badges }}
@@ -36,3 +43,4 @@
         </div>
     </div>
 </div>
+{{ end }}
