@@ -10,7 +10,7 @@ areas:
 # Mantenha apenas as áreas das quais você participa
   - "management"
   - "advisors"
-  - "trainning"
+  - "training"
   - "external_relations"
   - "human_resources"
   - "marketing"
