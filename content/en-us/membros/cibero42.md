@@ -7,7 +7,7 @@ linkedin: "renato-cf"
 external: ""
 points: 0
 areas:
-  - "training"
+  - "advisors"
 badges:
   - "website_contributor"
 translationKey: "member_cibero42"
