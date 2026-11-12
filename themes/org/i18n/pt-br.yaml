@@ -23,9 +23,11 @@ members-list-area-external_relations: Relações Exteriores
 members-list-area-human_resources: Recursos Humanos
 members-list-area-marketing: Marketing
 members-list-alumni: Ex-membros
+members-list-nav-label: Áreas da liga
 
 # Single
 members-single-s2-h1: Conquistas
+members-single-external-label: Site pessoal
 members-single-pts: pts
 members-single-pts-description: Este membros possui esta quantidade de pontos
 

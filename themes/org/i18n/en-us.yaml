@@ -23,9 +23,11 @@ members-list-area-external_relations: External Relations
 members-list-area-human_resources: Human Resources
 members-list-area-marketing: Marketing
 members-list-alumni: Former Members
+members-list-nav-label: League areas
 
 # Single  
 members-single-s2-h1: Achievements  
+members-single-external-label: Personal website
 members-single-pts: pts  
 members-single-pts-description: This member has this amount of points  
 
