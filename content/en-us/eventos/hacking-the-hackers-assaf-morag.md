@@ -7,12 +7,10 @@ description: "Assaf Morag replicates his DEF CON 34 talk, revealing how supply-c
 eventdate: 2026-11-05T18:00:00-03:00
 duration: "1:00"
 format: "speech"
-inscriptionlink: ""
+inscriptionlink: "https://docs.google.com/forms/d/e/1FAIpQLSdUQ0MyyghPaSMOlnKiCHs7XgsAmjAZ2NZzUMiGeNbTBPOe1w/viewform"
 ispublic: true
 translationKey: "event_hacking-the-hackers-assaf-morag"
 ---
-
-This talk is part of LICS ENIGMA.
 
 We are honored to welcome Assaf Morag, a renowned security researcher and Threat Intelligence Consultant, with an outstanding track record of hunting advanced malware, botnets, and complex cybercrime operations.
 

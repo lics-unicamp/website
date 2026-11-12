@@ -7,12 +7,10 @@ description: "Uirá Ribeiro apresenta os conceitos fundamentais de segurança e 
 eventdate: 2026-11-17T19:00:00-03:00
 duration: "1:00"
 format: "speech"
-inscriptionlink: ""
+inscriptionlink: "https://docs.google.com/forms/d/e/1FAIpQLSdUQ0MyyghPaSMOlnKiCHs7XgsAmjAZ2NZzUMiGeNbTBPOe1w/viewform"
 ispublic: true
 translationKey: "event_lpi-security-essentials-uira-ribeiro"
 ---
-
-Esta palestra faz parte do LICS ENIGMA.
 
 Temos a honra de receber Uirá Ribeiro, Chair of the Board of Directors do Linux Professional Institute (LPI), CEO da Certificação Linux e renomado especialista em DevOps e Linux.
 

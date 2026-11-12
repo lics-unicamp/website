@@ -7,12 +7,10 @@ description: "Joe Grand shares his most famous cryptocurrency recoveries and how
 eventdate: 2026-11-10T18:00:00-03:00
 duration: "1:00"
 format: "speech"
-inscriptionlink: ""
+inscriptionlink: "https://docs.google.com/forms/d/e/1FAIpQLSdUQ0MyyghPaSMOlnKiCHs7XgsAmjAZ2NZzUMiGeNbTBPOe1w/viewform"
 ispublic: true
 translationKey: "event_adventures-of-wallet-hacking-joe-grand"
 ---
-
-This talk is part of LICS ENIGMA.
 
 We are honored to welcome Joe Grand (also known as Kingpin), a legendary hardware hacker, computer engineer, and former member of the iconic hacker collective L0pht Heavy Industries.
 

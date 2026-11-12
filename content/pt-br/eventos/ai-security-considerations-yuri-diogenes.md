@@ -7,12 +7,10 @@ description: "Yuri Diógenes aborda os desafios da IA agêntica, gestão de risc
 eventdate: 2026-11-30T19:00:00-03:00
 duration: "1:00"
 format: "speech"
-inscriptionlink: ""
+inscriptionlink: "https://docs.google.com/forms/d/e/1FAIpQLSdUQ0MyyghPaSMOlnKiCHs7XgsAmjAZ2NZzUMiGeNbTBPOe1w/viewform"
 ispublic: true
 translationKey: "event_ai-security-considerations-yuri-diogenes"
 ---
-
-Esta palestra faz parte do LICS ENIGMA.
 
 Temos a honra de receber Yuri Diógenes, um gigante da indústria com mais de 30 anos de experiência em liderança de TI e cibersegurança. Com PhD em Cybersecurity Leadership, Yuri é professor universitário na The University of Texas at Dallas e na EC-Council University, formando a próxima geração de profissionais.
 

@@ -7,14 +7,12 @@ description: "Assaf Morag replica sua palestra da DEF CON 34 e revela como backd
 eventdate: 2026-11-05T18:00:00-03:00
 duration: "1:00"
 format: "speech"
-inscriptionlink: ""
+inscriptionlink: "https://docs.google.com/forms/d/e/1FAIpQLSdUQ0MyyghPaSMOlnKiCHs7XgsAmjAZ2NZzUMiGeNbTBPOe1w/viewform"
 ispublic: true
 translationKey: "event_hacking-the-hackers-assaf-morag"
 ---
 
 **Esta palestra ocorrerá em inglês**
-
-Esta palestra faz parte do LICS ENIGMA.
 
 Temos a honra de receber Assaf Morag, renomado pesquisador de segurança e consultor de Threat Intelligence, com um histórico de destaque na caça a malwares avançados, botnets e operações complexas de cibercrime.
 

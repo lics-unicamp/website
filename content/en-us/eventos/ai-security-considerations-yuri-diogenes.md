@@ -7,14 +7,12 @@ description: "Yuri Diógenes covers the challenges of Agentic AI, risk managemen
 eventdate: 2026-11-30T19:00:00-03:00
 duration: "1:00"
 format: "speech"
-inscriptionlink: ""
+inscriptionlink: "https://docs.google.com/forms/d/e/1FAIpQLSdUQ0MyyghPaSMOlnKiCHs7XgsAmjAZ2NZzUMiGeNbTBPOe1w/viewform"
 ispublic: true
 translationKey: "event_ai-security-considerations-yuri-diogenes"
 ---
 
 **This talk will be held in Portuguese**
-
-This talk is part of LICS ENIGMA.
 
 We are honored to welcome Yuri Diógenes, an industry titan with over 30 years of experience in IT and cybersecurity leadership. With a PhD in Cybersecurity Leadership, Yuri is a University Professor at The University of Texas at Dallas and EC-Council University, shaping the next generation of professionals.
 

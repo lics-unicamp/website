@@ -7,14 +7,12 @@ description: "Jullyano Lino covers the foundations of quantum computing, the evo
 eventdate: 2026-11-13T19:00:00-03:00
 duration: "1:00"
 format: "speech"
-inscriptionlink: ""
+inscriptionlink: "https://docs.google.com/forms/d/e/1FAIpQLSdUQ0MyyghPaSMOlnKiCHs7XgsAmjAZ2NZzUMiGeNbTBPOe1w/viewform"
 ispublic: true
 translationKey: "event_seguranca-cibernetica-quantica-jullyano-lino"
 ---
 
 **This talk will be held in Portuguese**
-
-This talk is part of LICS ENIGMA.
 
 We are honored to welcome Jullyano Lino, an IBM Qiskit Advocate, Cybersecurity Consultant at the Inter-American Development Bank (IADB), and a specialist in quantum technologies.
 

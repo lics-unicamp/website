@@ -7,12 +7,10 @@ description: "Jullyano Lino apresenta os fundamentos da computação quântica, 
 eventdate: 2026-11-13T19:00:00-03:00
 duration: "1:00"
 format: "speech"
-inscriptionlink: ""
+inscriptionlink: "https://docs.google.com/forms/d/e/1FAIpQLSdUQ0MyyghPaSMOlnKiCHs7XgsAmjAZ2NZzUMiGeNbTBPOe1w/viewform"
 ispublic: true
 translationKey: "event_seguranca-cibernetica-quantica-jullyano-lino"
 ---
-
-Esta palestra faz parte do LICS ENIGMA.
 
 Temos a honra de receber Jullyano Lino, IBM Qiskit Advocate, consultor de cibersegurança no Banco Interamericano de Desenvolvimento (BID) e especialista em tecnologias quânticas.
 
