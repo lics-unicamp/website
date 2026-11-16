@@ -5,8 +5,10 @@ cargo: "agent"
 github: "brennocm"
 linkedin: "brennocm"
 external: "https://brennocm.github.io/"
+alumni: true
 points: 0
 areas:
+  - "advisors"
   - "training"
 badges:
   - "website_contributor"

@@ -1,0 +1,17 @@
+---
+title: "Adriano Kenzo"
+description: "Em breve, mais informações."
+cargo: "associate"
+github: ""
+linkedin: ""
+external: ""
+alumni: true
+points: 0
+areas:
+  - "human_resources"
+badges:
+  - ""
+translationKey: "member_adrianokenzo"
+---
+## Sobre
+Não há nada por aqui ¯\_(ツ)_/¯
