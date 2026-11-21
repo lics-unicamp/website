@@ -5,11 +5,12 @@ cargo: "associate"
 github: "raphaelzanco"
 linkedin: "raphael-zanco"
 external: ""
-points: 1
+points: 0
 areas:
+  - "advisors"
   - "management"
 badges:
-  - ""
+  - "founding_member"
 translationKey: "member_zanco"
 ---
 ## Sobre

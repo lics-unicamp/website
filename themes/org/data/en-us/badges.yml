@@ -1,3 +1,8 @@
 website_contributor:
-  title: "Website Contributor"
+  title: "Site-builder"
+  description: "Contributed to building the league's website."
   icon: website_contributor.png
+founding_member:
+  title: "Founding Member"
+  description: "Part of the league's first cohort, from the 2025/1 selection process."
+  icon: founding_member.svg

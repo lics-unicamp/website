@@ -17,47 +17,68 @@
 <section class="bg-black">
     <div style="height: {{ .Site.Params.spacing_size }};"></div>
     <div class="container">
-        <div class="row g-4">
-            {{ $pages := where .Pages "Params.points" "ne" nil }}
-            {{ $sortedPages := sort $pages ".Params.points" "desc" }}
+        {{ $pages := where .Pages "Params.points" "ne" nil }}
+        {{ $sortedPages := sort $pages ".Params.points" "desc" }}
+        {{ $alumni := where $sortedPages "Params.alumni" true }}
+        {{ $sortedPages = where $sortedPages "Params.alumni" "ne" true }}
+        {{/* Areas in hierarchical order; each member is listed under their first area */}}
+        {{ $areas := slice "management" "advisors" "training" "external_relations" "human_resources" "marketing" }}
+        {{ $groups := slice }}
+        {{ range $areas }}
+            {{ $area := . }}
+            {{ $members := slice }}
             {{ range $sortedPages }}
-                <div class="col-12 col-lg-6 col-xxl-4">
-                    <div class="h-100 card bg-military-black">
-                        <div class="card-body">
-                            <div class="h-100 d-flex flex-column justify-content-between">
-                                <div class="flex-grow-1">
-                                    <div class="d-flex">
-                                        <img class="me-2 rounded" height="90px" width="90px" src="/media/images/members/{{ .Params.github }}.jpg" alt="Profile pic" onerror="this.onerror=null;this.src='/media/images/members/default.jpg';">
-                                        <div class="d-flex flex-column justify-content-between">
-                                            <h3 class="m-0 ms-1 fs-5 fw-semibold">{{ .Title }}</h3>
-                                            <div class="ms-1 d-flex flex-wrap">
-                                                <span class="me-1 mb-1 badge bg-white text-black" data-bs-toggle="tooltip" title='{{ T "members-single-pts-description" }}'>{{ .Params.points }}&nbsp;{{ T "members-single-pts" }}</span>
-                                                {{ range .Params.areas}}
-                                                    {{ partial "areas.html" (dict "context" .) }}
-                                                {{ end }}
-                                                {{ partial "roles.html" (dict "context" .Params.cargo) }}
-                                            </div>
-                                            <div class="d-flex" style="height: 30px;">
-                                                {{ range first 5 .Params.badges }}
-                                                    {{ if ne . ""}}
-                                                        {{ $badgeKey := . }}
-                                                        {{ $badge := index $data_index.badges $badgeKey }}
-                                                        <img class="m-1" height="25px" width="25px" src="/media/images/badges/{{ $badge.icon }}" data-bs-toggle="tooltip" title="{{ $badge.title }}" alt="{{ $badge.title }}">
-                                                    {{ end }}
-                                                {{ end }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="my-3 small">{{ .Description }}</p>
-                                </div>
-                                <a class="btn btn-primary" href="{{ .Permalink }}">{{ T "members-list-card-btn1" }}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
+                {{ if eq (index .Params.areas 0) $area }}
+                    {{ $members = $members | append . }}
+                {{ end }}
             {{ end }}
-        </div>
+            {{/* Board order: president, vice president, then the other directors */}}
+            {{ if eq $area "management" }}
+                {{ $president := slice }}
+                {{ $vice := slice }}
+                {{ $directors := slice }}
+                {{ range $members }}
+                    {{ if in .Params.areas "president" }}
+                        {{ $president = $president | append . }}
+                    {{ else if in .Params.areas "vice_president" }}
+                        {{ $vice = $vice | append . }}
+                    {{ else }}
+                        {{ $directors = $directors | append . }}
+                    {{ end }}
+                {{ end }}
+                {{ $members = $president | append $vice | append $directors }}
+            {{ end }}
+            {{ with $members }}
+                {{ $groups = $groups | append (dict "area" $area "members" .) }}
+            {{ end }}
+        {{ end }}
+        {{/* Shortcuts to each area, with its member count */}}
+        <nav class="mb-5 d-flex flex-wrap gap-2" aria-label="{{ T "members-list-nav-label" }}">
+            {{ range $groups }}
+                <a class="btn btn-sm btn-outline-primary" href="#area-{{ .area }}">{{ T (printf "members-list-area-%s" .area) }}<span class="ms-2 cust-count">{{ len .members }}</span></a>
+            {{ end }}
+            {{ with $alumni }}
+                <a class="btn btn-sm btn-outline-secondary text-white" href="#area-alumni">{{ T "members-list-alumni" }}<span class="ms-2 cust-count">{{ len . }}</span></a>
+            {{ end }}
+        </nav>
+        {{ range $groups }}
+            {{ $area := .area }}
+            <h2 id="area-{{ $area }}" class="mb-4 text-primary cust-anchor">{{ T (printf "members-list-area-%s" $area) }}</h2>
+            <div class="mb-5 row g-3">
+                {{ range .members }}
+                    {{ partial "member-card.html" (dict "page" . "area" $area) }}
+                {{ end }}
+            </div>
+        {{ end }}
+        {{/* Former members: set `alumni: true` in the member's front matter */}}
+        {{ with $alumni }}
+            <h2 id="area-alumni" class="mb-4 text-primary cust-anchor">{{ T "members-list-alumni" }}</h2>
+            <div class="mb-5 row g-3">
+                {{ range . }}
+                    {{ partial "member-card-alumni.html" . }}
+                {{ end }}
+            </div>
+        {{ end }}
     </div>
     
     <div style="height: {{ .Site.Params.spacing_size }};"></div>

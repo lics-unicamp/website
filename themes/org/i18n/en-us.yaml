@@ -16,9 +16,18 @@ members-list-s1-h1: Our Members
 members-list-s1-p1: The members of LICS are dedicated students passionate about technology, information security, and innovation. Each member contributes unique skills, collaborating on projects, events, and competitions that strengthen our commitment to cybersecurity both within and beyond the university.  
 members-list-s1-btn1: Join the team  
 members-list-card-btn1: View profile  
+members-list-area-management: Board
+members-list-area-advisors: Advisors
+members-list-area-training: Training
+members-list-area-external_relations: External Relations
+members-list-area-human_resources: Human Resources
+members-list-area-marketing: Marketing
+members-list-alumni: Former Members
+members-list-nav-label: League areas
 
 # Single  
 members-single-s2-h1: Achievements  
+members-single-external-label: Personal website
 members-single-pts: pts  
 members-single-pts-description: This member has this amount of points  
 
@@ -72,6 +81,10 @@ partial-areas-op1: Training
 partial-areas-op2: Ext Relations  
 partial-areas-op3: HR  
 partial-areas-op4: Board  
+partial-areas-op5: Advisor  
+partial-areas-op6: Marketing  
+partial-areas-op7: President  
+partial-areas-op8: Vice President  
 
 # Roles  
 partial-roles-op1: Challenger  

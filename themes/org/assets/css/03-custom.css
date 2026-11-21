@@ -3,6 +3,18 @@
     color: var(--bs-white);
 }
 
+/* Browser surfaces in the brand color */
+::selection {
+    background-color: var(--bs-primary);
+    color: var(--bs-black);
+}
+
+a:not(.btn):focus-visible {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
 /* Navbar */
 .navbar .dropdown:hover .dropdown-menu {
     display: block;
@@ -42,6 +54,87 @@ select option:checked {
     color: white;
 }
 
+/* Member photo and initials avatar */
+.cust-member-photo {
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.cust-avatar {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    background-color: var(--bs-secondary);
+    color: var(--bs-primary);
+    font-size: calc(var(--avatar-size) * 0.36);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    user-select: none;
+}
+
+/* Member card: the whole card links to the profile */
+.cust-member-card {
+    transition: background-color 150ms cubic-bezier(0.23, 1, 0.32, 1), border-color 150ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cust-member-card:hover {
+    background-color: var(--bs-secondary) !important;
+}
+
+.cust-member-card:focus-within {
+    border-color: var(--bs-primary);
+}
+
+.cust-member-card .stretched-link:focus-visible {
+    outline: none;
+}
+
+.cust-member-card:hover .cust-profile-cue,
+.cust-member-card:focus-within .cust-profile-cue {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Members list: area shortcuts */
+.cust-anchor {
+    scroll-margin-top: 7rem;
+}
+
+.cust-count {
+    font-variant-numeric: tabular-nums;
+    opacity: 0.75;
+}
+
+/* Former members */
+.cust-alumni {
+    opacity: 0.55;
+    transition: opacity 250ms;
+}
+
+.cust-alumni img {
+    filter: grayscale(100%);
+    transition: filter 250ms;
+}
+
+.cust-alumni .badge {
+    font-size: 0.6em;
+    padding: 0.3em 0.5em;
+}
+
+.cust-alumni:hover,
+.cust-alumni:focus-within {
+    opacity: 1;
+}
+
+.cust-alumni:hover img,
+.cust-alumni:focus-within img {
+    filter: none;
+}
+
 /* Blur */
 .cust-blur {
     backdrop-filter: blur(10px);
@@ -53,4 +146,39 @@ select option:checked {
 @keyframes fade-up{
   0%{transform:translate(0px, 100px); opacity: 0;}
   100%{transform:translate(0px, 0); opacity: 1;}
+}
+/* Member achievements */
+.cust-achievement {
+    background-color: rgba(0, 0, 0, 0.18);
+    border: 1px solid transparent;
+    transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.cust-achievement:hover {
+    background-color: rgba(0, 0, 0, 0.32);
+    border-color: var(--bs-primary);
+}
+
+.cust-achievement-icon {
+    flex-shrink: 0;
+    transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cust-achievement:hover .cust-achievement-icon {
+    transform: scale(1.08) rotate(-4deg);
+}
+
+.cust-achievement-desc {
+    opacity: 0.75;
+    line-height: 1.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cust-achievement,
+    .cust-achievement-icon {
+        transition: none;
+    }
+    .cust-achievement:hover .cust-achievement-icon {
+        transform: none;
+    }
 }

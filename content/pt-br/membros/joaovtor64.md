@@ -5,11 +5,12 @@ cargo: "associate"
 github: "joaovtor64"
 linkedin: "joão-vitor-tito-da-paixão-6660b034b"
 external: ""
-points: 13
+points: 0
 areas:
+  - "management"
   - "training"
 badges:
-  - ""
+  - "founding_member"
 translationKey: "member_joaovtor64"
 ---
 ## Sobre

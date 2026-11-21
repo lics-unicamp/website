@@ -5,11 +5,12 @@ cargo: "associate"
 github: "wheresvortex"
 linkedin: "enzohenrique"
 external: ""
-points: 1
+alumni: true
+points: 0
 areas:
   - "training"
 badges:
-  - ""
+  - "founding_member"
 translationKey: "member_wheresvortex"
 ---
 ## Sobre

@@ -5,11 +5,13 @@ cargo: "agent"
 github: "cibero42"
 linkedin: "renato-cf"
 external: ""
-points: 1
+points: 0
 areas:
+  - "advisors"
   - "training"
 badges:
   - "website_contributor"
+  - "founding_member"
 translationKey: "member_cibero42"
 ---
 Hello agent, good to see you here!

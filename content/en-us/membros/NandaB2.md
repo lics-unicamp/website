@@ -7,9 +7,10 @@ linkedin: "fernanda-alves-239926233"
 external: ""
 points: 0
 areas:
-  - "training"
+  - "management"
+  - "president"
 badges:
-  - ""
+  - "founding_member"
 translationKey: "member_NandaB2"
 ---
 ## Sobre

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+<defs><clipPath id="c"><path d="M250,60 L386,115 L386,298 Q386,326 364,348 L250,436 L136,348 Q114,326 114,298 L114,115 Z"/></clipPath></defs>
+<path d="M250,36 L398,96 Q410,101 410,114 L410,300 Q410,336 384,362 L264,456 Q250,466 236,456 L116,362 Q90,336 90,300 L90,114 Q90,101 102,96 Z" fill="#9fe04a"/>
+<path d="M250,60 L386,115 L386,298 Q386,326 364,348 L250,436 L136,348 Q114,326 114,298 L114,115 Z" fill="none" stroke="#111" stroke-width="7" stroke-linejoin="round"/>
+<polygon points="250.0,80.0 254.7,93.5 269.0,93.8 257.6,102.5 261.8,116.2 250.0,108.0 238.2,116.2 242.4,102.5 231.0,93.8 245.3,93.5" fill="#111"/>
+<path d="M177.4,308.0 L152.9,282.1 L137.4,250.2 L132.0,215.0 L137.4,179.8 L152.9,147.9 L177.4,122.0" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="152.9" cy="282.1" rx="14" ry="5.5" transform="rotate(-95.3 152.9 282.1) translate(11 0)" fill="#111"/>
+<ellipse cx="152.9" cy="282.1" rx="14" ry="5.5" transform="rotate(-171.3 152.9 282.1) translate(11 0)" fill="#111"/>
+<ellipse cx="137.4" cy="250.2" rx="14" ry="5.5" transform="rotate(-78.0 137.4 250.2) translate(11 0)" fill="#111"/>
+<ellipse cx="137.4" cy="250.2" rx="14" ry="5.5" transform="rotate(-154.0 137.4 250.2) translate(11 0)" fill="#111"/>
+<ellipse cx="132.0" cy="215.0" rx="14" ry="5.5" transform="rotate(-60.7 132.0 215.0) translate(11 0)" fill="#111"/>
+<ellipse cx="132.0" cy="215.0" rx="14" ry="5.5" transform="rotate(-136.7 132.0 215.0) translate(11 0)" fill="#111"/>
+<ellipse cx="137.4" cy="179.8" rx="14" ry="5.5" transform="rotate(-43.3 137.4 179.8) translate(11 0)" fill="#111"/>
+<ellipse cx="137.4" cy="179.8" rx="14" ry="5.5" transform="rotate(-119.3 137.4 179.8) translate(11 0)" fill="#111"/>
+<ellipse cx="152.9" cy="147.9" rx="14" ry="5.5" transform="rotate(-26.0 152.9 147.9) translate(11 0)" fill="#111"/>
+<ellipse cx="152.9" cy="147.9" rx="14" ry="5.5" transform="rotate(-102.0 152.9 147.9) translate(11 0)" fill="#111"/>
+<ellipse cx="177.4" cy="122.0" rx="14" ry="5.5" transform="rotate(-8.7 177.4 122.0) translate(11 0)" fill="#111"/>
+<ellipse cx="177.4" cy="122.0" rx="14" ry="5.5" transform="rotate(-84.7 177.4 122.0) translate(11 0)" fill="#111"/>
+<path d="M322.6,308.0 L347.1,282.1 L362.6,250.2 L368.0,215.0 L362.6,179.8 L347.1,147.9 L322.6,122.0" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="347.1" cy="282.1" rx="14" ry="5.5" transform="rotate(-8.7 347.1 282.1) translate(11 0)" fill="#111"/>
+<ellipse cx="347.1" cy="282.1" rx="14" ry="5.5" transform="rotate(-84.7 347.1 282.1) translate(11 0)" fill="#111"/>
+<ellipse cx="362.6" cy="250.2" rx="14" ry="5.5" transform="rotate(-26.0 362.6 250.2) translate(11 0)" fill="#111"/>
+<ellipse cx="362.6" cy="250.2" rx="14" ry="5.5" transform="rotate(-102.0 362.6 250.2) translate(11 0)" fill="#111"/>
+<ellipse cx="368.0" cy="215.0" rx="14" ry="5.5" transform="rotate(-43.3 368.0 215.0) translate(11 0)" fill="#111"/>
+<ellipse cx="368.0" cy="215.0" rx="14" ry="5.5" transform="rotate(-119.3 368.0 215.0) translate(11 0)" fill="#111"/>
+<ellipse cx="362.6" cy="179.8" rx="14" ry="5.5" transform="rotate(-60.7 362.6 179.8) translate(11 0)" fill="#111"/>
+<ellipse cx="362.6" cy="179.8" rx="14" ry="5.5" transform="rotate(-136.7 362.6 179.8) translate(11 0)" fill="#111"/>
+<ellipse cx="347.1" cy="147.9" rx="14" ry="5.5" transform="rotate(-78.0 347.1 147.9) translate(11 0)" fill="#111"/>
+<ellipse cx="347.1" cy="147.9" rx="14" ry="5.5" transform="rotate(-154.0 347.1 147.9) translate(11 0)" fill="#111"/>
+<ellipse cx="322.6" cy="122.0" rx="14" ry="5.5" transform="rotate(-95.3 322.6 122.0) translate(11 0)" fill="#111"/>
+<ellipse cx="322.6" cy="122.0" rx="14" ry="5.5" transform="rotate(-171.3 322.6 122.0) translate(11 0)" fill="#111"/>
+<g clip-path="url(#c)">
+  <path d="M90,470 L90,340 Q170,300 250,312 Q330,300 410,340 L410,470 Z" fill="#111"/>
+</g>
+<rect x="212" y="148" width="10" height="170" rx="5" fill="#111"/>
+<circle cx="217" cy="144" r="9" fill="#111"/>
+<path d="M222,156 Q256,142 286,158 T330,160 L312,194 L330,228 Q302,216 276,226 T222,226 Z" fill="#111"/>
+<text x="270" y="208" font-family="Arial,Helvetica,sans-serif" font-size="46" font-weight="700" text-anchor="middle" fill="#9fe04a">1</text>
+</svg>

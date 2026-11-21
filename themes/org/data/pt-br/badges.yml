@@ -1,4 +1,8 @@
 website_contributor:
-  title: "Website Contributor"
+  title: "Site-builder"
+  description: "Contribuiu para a construção do site da liga."
   icon: website_contributor.png
-  
+founding_member:
+  title: "Membro-fundador"
+  description: "Integrou a primeira turma da liga, no processo seletivo de 2025/1."
+  icon: founding_member.svg

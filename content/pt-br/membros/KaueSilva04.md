@@ -1,6 +1,6 @@
 ---
 title: "Kauê Silva"
-description: "todo"
+description: "Em breve, mais informações."
 cargo: "associate"
 github: "KaueSilva04"
 linkedin: "kau%C3%AA-samuel-73390b26b"
