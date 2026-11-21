@@ -10,7 +10,7 @@ areas:
   - "management"
   - "training"
 badges:
-  - ""
+  - "founding_member"
 translationKey: "member_joaovtor64"
 ---
 ## Sobre

@@ -9,7 +9,7 @@ points: 0
 areas:
   - "external_relations"
 badges:
-  - ""
+  - "founding_member"
 translationKey: "member_vinizanete"
 ---
 ## Sobre

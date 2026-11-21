@@ -12,6 +12,7 @@ areas:
   - "training"
 badges:
   - "website_contributor"
+  - "founding_member"
 translationKey: "member_brennocm"
 ---
 {{< columns >}}

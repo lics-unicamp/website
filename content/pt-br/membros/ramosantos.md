@@ -10,7 +10,7 @@ areas:
   - "advisors"
   - "management"
 badges:
-  - ""
+  - "founding_member"
 translationKey: "member_kiev"
 ---
 ## Sobre
