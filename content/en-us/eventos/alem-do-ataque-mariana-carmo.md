@@ -10,6 +10,8 @@ format: "speech"
 inscriptionlink: ""
 ispublic: true
 translationKey: "event_alem-do-ataque-mariana-carmo"
+series: "cyber-fest-2026"
+video: "zYZ9YhqCO_c"
 ---
 
 Currently working as a Cyber Threat Intelligence (CTI) Analyst at Apura Cyber Intelligence, Mariana specializes in cyber threat analysis, open-source intelligence (OSINT) investigations, and intelligence production to anticipate risks and support strategic decision-making.

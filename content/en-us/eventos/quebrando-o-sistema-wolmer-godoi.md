@@ -10,6 +10,8 @@ format: "speech"
 inscriptionlink: ""
 ispublic: true
 translationKey: "event_quebrando-o-sistema-wolmer-godoi"
+series: "cyber-fest-2026"
+video: "I5PujBIyqHU"
 ---
 
 We are honored to welcome Wolmer Godoi, a cybersecurity executive (CISSP) with more than 28 years of experience leading MSSP, SOC, GRC, and Red Team portfolios across Latin America and Europe.

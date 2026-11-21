@@ -10,6 +10,8 @@ format: "speech"
 inscriptionlink: "https://docs.google.com/forms/d/e/1FAIpQLSdUQ0MyyghPaSMOlnKiCHs7XgsAmjAZ2NZzUMiGeNbTBPOe1w/viewform"
 ispublic: true
 translationKey: "event_seguranca-cibernetica-quantica-jullyano-lino"
+series: "lics-enigma"
+video: "BytXUCBuG0E"
 ---
 
 Temos a honra de receber Jullyano Lino, IBM Qiskit Advocate, consultor de cibersegurança no Banco Interamericano de Desenvolvimento (BID) e especialista em tecnologias quânticas.

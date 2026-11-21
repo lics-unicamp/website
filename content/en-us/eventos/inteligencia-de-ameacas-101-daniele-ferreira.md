@@ -10,4 +10,5 @@ format: "speech"
 inscriptionlink: "https://forms.google.com"
 ispublic: true
 translationKey: "event_inteligencia-de-ameacas-101"
+series: "lics-convida"
 ---

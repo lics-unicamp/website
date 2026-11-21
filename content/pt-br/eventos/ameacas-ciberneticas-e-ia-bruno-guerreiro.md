@@ -10,6 +10,8 @@ format: "speech"
 inscriptionlink: ""
 ispublic: true
 translationKey: "event_ameacas-ciberneticas-e-ia-bruno-guerreiro"
+series: "cyber-fest-2026"
+video: "tczywD3CZFM"
 ---
 
 Preparados para elevar o nível da discussão sobre Cibersegurança e IA? O LICS CyberFest tem a honra de receber Bruno Guerreiro, executivo com 20 anos de trajetória no ecossistema de Segurança da Informação.

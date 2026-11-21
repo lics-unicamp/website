@@ -36,16 +36,42 @@ members-single-pts-description: This member has this amount of points
 # Events #
 ###########
 # List  
-events-list-s1-h1: Event Calendar  
-events-list-s1-p1: Check out the events we organize and register for upcoming ones open to the general public!  
-events-list-card-btn1: Sign up  
-events-list-card-btn2: Discover
-events-list-card-btn3: Highlights  
-event-list-card-public1: Public  
-event-list-card-public2: For members  
+events-h1: "Events"
+events-intro: "Talks, workshops and competitions run by LICS. Talks open to the public are recorded and published on {{ .Channel }}."
+events-intro-channel: "our YouTube channel"
+events-next-h2: "Upcoming events"
+events-next-empty: "Nothing scheduled right now. New events are announced on our social media; to give a talk or propose an event, {{ .Contact }}."
+events-next-empty-contact: "get in touch"
+events-past-h2: "Past events"
+events-group-members: "Members-only events"
+events-group-year: "Other events in {{ .Year }}"
+events-range-month: "{{ .Month }} {{ .Year }}"
+events-range-months: "{{ .From }} to {{ .To }} {{ .Year }}"
+events-range-years: "{{ .From }} {{ .FromYear }} to {{ .To }} {{ .ToYear }}"
+events-count:
+  one: "{{ .Count }} event"
+  other: "{{ .Count }} events"
+events-signup: "Sign up"
+events-signup-soon: "Sign-up opens soon"
+events-ended: "This event has already taken place."
+events-details: "Details"
+events-watch: "Watch"
+events-members-only: "Members only"
+events-public: "Open to the public"
+events-all: "All events"
+events-video-play: "Play the recording"
+events-video-youtube: "Watch on YouTube"
+events-fact-speaker: "Speaker"
+events-fact-company: "Organization"
+events-fact-date: "Date"
+events-fact-time: "Time"
+events-timezone: "Brasília time (UTC-3)"
+events-fact-duration: "Duration"
+events-fact-format: "Format"
+events-fact-access: "Access"
+events-more-series: "More from {{ .Series }}"
 
 # Single  
-events-single-s2-h1: Information  
 
 #########
 # About #

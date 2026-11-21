@@ -10,6 +10,8 @@ format: "speech"
 inscriptionlink: "https://docs.google.com/forms/d/e/1FAIpQLSdUQ0MyyghPaSMOlnKiCHs7XgsAmjAZ2NZzUMiGeNbTBPOe1w/viewform"
 ispublic: true
 translationKey: "event_adventures-of-wallet-hacking-joe-grand"
+series: "lics-enigma"
+video: "0yWLxFqtFMQ"
 ---
 
 **Esta palestra ocorrerá em inglês**

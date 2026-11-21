@@ -10,6 +10,8 @@ format: "speech"
 inscriptionlink: ""
 ispublic: true
 translationKey: "event_hidden-windows-pavel-yosifovich"
+series: "cyber-fest-2026"
+video: "rATWqBwMyik"
 ---
 
 We are honored to welcome Pavel Yosifovich, a world-renowned expert in Windows Internals, prolific author, and elite instructor with unparalleled expertise in systems programming.

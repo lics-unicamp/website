@@ -1,0 +1,12 @@
+{{- /* "1:00" -> "1h", "1:30" -> "1h30", "0:45" -> "45 min", "00:00" or empty -> "" */ -}}
+{{- $out := "" -}}
+{{- with . -}}
+  {{- $parts := split . ":" -}}
+  {{- $h := int (strings.TrimLeft "0" (index $parts 0) | default "0") -}}
+  {{- $m := 0 -}}
+  {{- if gt (len $parts) 1 }}{{ $m = int (strings.TrimLeft "0" (index $parts 1) | default "0") }}{{ end -}}
+  {{- if and $h $m }}{{ $out = printf "%dh%02d" $h $m }}
+  {{- else if $h }}{{ $out = printf "%dh" $h }}
+  {{- else if $m }}{{ $out = printf "%d min" $m }}{{ end -}}
+{{- end -}}
+{{- return $out -}}

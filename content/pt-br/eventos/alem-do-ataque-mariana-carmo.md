@@ -10,6 +10,8 @@ format: "speech"
 inscriptionlink: ""
 ispublic: true
 translationKey: "event_alem-do-ataque-mariana-carmo"
+series: "cyber-fest-2026"
+video: "zYZ9YhqCO_c"
 ---
 
 Atualmente atuando como Analista de Cyber Threat Intelligence (CTI) na Apura Cyber Intelligence, Mariana é especialista na análise de ameaças cibernéticas, investigação em fontes abertas (OSINT) e produção de inteligência para antecipar riscos e apoiar decisões estratégicas.

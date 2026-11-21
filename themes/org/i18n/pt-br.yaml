@@ -36,16 +36,42 @@ members-single-pts-description: Este membros possui esta quantidade de pontos
 # Eventos #
 ###########
 # List
-events-list-s1-h1: Calendário de Eventos
-events-list-s1-p1: Confira os eventos organizados por nós, e cadastre-se para os próximos abertos ao público geral!
-events-list-card-btn1: Inscreva-se
-events-list-card-btn2: Descobrir
-events-list-card-btn3: Destaques
-event-list-card-public1: Público
-event-list-card-public2: Para membros
+events-h1: "Eventos"
+events-intro: "Palestras, workshops e competições organizados pela LICS. As palestras abertas ao público ficam gravadas no {{ .Channel }}."
+events-intro-channel: "nosso canal do YouTube"
+events-next-h2: "Próximos eventos"
+events-next-empty: "Nenhum evento agendado agora. Os próximos são divulgados nas nossas redes; se quiser palestrar ou propor um evento, {{ .Contact }}."
+events-next-empty-contact: "fale com a gente"
+events-past-h2: "Eventos realizados"
+events-group-members: "Eventos para membros"
+events-group-year: "Outros eventos de {{ .Year }}"
+events-range-month: "{{ .Month }} de {{ .Year }}"
+events-range-months: "{{ .From }} a {{ .To }} de {{ .Year }}"
+events-range-years: "{{ .From }} de {{ .FromYear }} a {{ .To }} de {{ .ToYear }}"
+events-count:
+  one: "{{ .Count }} evento"
+  other: "{{ .Count }} eventos"
+events-signup: "Inscreva-se"
+events-signup-soon: "Inscrições em breve"
+events-ended: "Este evento já aconteceu."
+events-details: "Detalhes"
+events-watch: "Assistir"
+events-members-only: "Somente para membros"
+events-public: "Aberto ao público"
+events-all: "Todos os eventos"
+events-video-play: "Reproduzir a gravação"
+events-video-youtube: "Assistir no YouTube"
+events-fact-speaker: "Palestrante"
+events-fact-company: "Organização"
+events-fact-date: "Data"
+events-fact-time: "Horário"
+events-timezone: "horário de Brasília"
+events-fact-duration: "Duração"
+events-fact-format: "Formato"
+events-fact-access: "Acesso"
+events-more-series: "Mais do {{ .Series }}"
 
 # Single
-events-single-s2-h1: Informações
 
 
 #########

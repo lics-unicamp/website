@@ -10,6 +10,8 @@ format: "speech"
 inscriptionlink: ""
 ispublic: true
 translationKey: "event_shadow-ai-benhur-ott"
+series: "cyber-fest-2026"
+video: "ZrfNrfKnAho"
 ---
 
 Temos a honra de receber Ben-Hur Santos Ott, executivo e especialista com quase duas décadas de experiência unindo o desenvolvimento de software e a cibersegurança.
