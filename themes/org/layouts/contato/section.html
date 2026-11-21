@@ -109,7 +109,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center">
             {{ range $data_index.about.partners }}
                 <div class="m-2 bg-white rounded">
-                    <a style="height: 150px; width: 150px;" href=""><img class="h-100 image-fluid" src="/media/images/partners/{{ .logo }}" data-bs-toggle="tooltip" title="{{ .name }}" alt="{{ .name }}"></a>
+                    <a class="d-block" href="{{ .link }}"><img class="p-2" style="height: 150px; width: 150px; object-fit: contain;" src="/media/images/partners/{{ .logo }}" data-bs-toggle="tooltip" title="{{ .name }}" alt="{{ .name }}"></a>
                 </div>
             {{ end }}
         </div>
