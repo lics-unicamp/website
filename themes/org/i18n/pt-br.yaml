@@ -70,6 +70,7 @@ contact-form-ck1: Aceito a Política de Privacidade
 contact-form-ck2: Desejo receber atualizações sobre os eventos da LICS por e-mail
 contact-form-msg-success: Sua solicitação foi enviada com sucesso! Em breve entraremos em contato.
 contact-form-msg-error: Erro no envio de sua solicitação. Por favor, tente novamente mais tarde.
+contact-form-invalid-email: Informe um e-mail válido.
 contact-form-btn1: Enviar
 contact-s2-h1: Localização
 contact-s2-p1: Nós somos uma organização estudantil da FT/UNICAMP, situada no Campus I Limeira da Universidade Estadual de Campinas
