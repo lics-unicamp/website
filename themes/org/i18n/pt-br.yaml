@@ -103,21 +103,42 @@ about-s3-btn1: Quero apoiar a LICS
 ###########
 # Contato #
 ###########
-contact-form-fd1: Nome
-contact-form-fd2: Sobrenome
-contact-form-fd3: E-mail
-contact-form-fd4: Telefone
-contact-form-fd5: Assunto
-contact-form-select: Selecione uma opção...
-contact-form-fd6: Mensagem
-contact-form-ck1: Aceito a Política de Privacidade
-contact-form-ck2: Desejo receber atualizações sobre os eventos da LICS por e-mail
-contact-form-msg-success: Sua solicitação foi enviada com sucesso! Em breve entraremos em contato.
-contact-form-msg-error: Erro no envio de sua solicitação. Por favor, tente novamente mais tarde.
-contact-form-invalid-email: Informe um e-mail válido.
-contact-form-btn1: Enviar
-contact-s2-h1: Localização
-contact-s2-p1: Nós somos uma organização estudantil da FT/UNICAMP, situada no Campus I Limeira da Universidade Estadual de Campinas
+contact-help-h2: "Como podemos ajudar"
+contact-help-join: "Quero entrar na LICS"
+contact-help-join-p: "Os processos seletivos são abertos a alunos da UNICAMP, uma vez por semestre, e divulgados nas nossas redes. Se tiver dúvidas antes disso, mande uma mensagem."
+contact-help-event: "Palestrar ou propor um evento"
+contact-help-event-p: "Recebemos profissionais do Brasil e de fora para palestras, workshops e CTFs, presenciais na FT ou online."
+contact-help-partner: "Parcerias"
+contact-help-partner-p: "Empresas, ONGs e órgãos públicos podem apoiar eventos, oferecer palestras e treinamentos ou patrocinar a liga."
+contact-channels-h2: "Outros canais"
+contact-form-h2: "Envie uma mensagem"
+contact-form-fd1: "Nome"
+contact-form-fd2: "Sobrenome"
+contact-form-fd3: "E-mail"
+contact-form-fd4: "Telefone"
+contact-form-optional: "(opcional)"
+contact-form-fd5: "Assunto"
+contact-form-fd6: "Mensagem"
+contact-form-hint-default: "Escolha um assunto acima para ver o que ajuda a gente a responder."
+contact-form-topic-required: "Escolha um assunto."
+contact-form-invalid-email: "Informe um e-mail válido, como nome@exemplo.com."
+contact-form-ck1: "Li e aceito a {{ .Policy }}."
+contact-form-ck1-link: "Política de Privacidade"
+contact-form-ck2: "Quero receber novidades sobre os eventos da LICS por e-mail."
+contact-form-btn1: "Enviar mensagem"
+contact-form-sending: "Enviando…"
+contact-form-msg-error: "Não foi possível enviar agora. Verifique sua conexão e tente de novo; o que você escreveu continua no formulário."
+contact-done-h2: "Mensagem enviada"
+contact-done-p: "Obrigado pelo contato. Vamos responder no e-mail que você informou. Se não tiver retorno, escreva para {{ .Email }}."
+contact-done-again: "Enviar outra mensagem"
+contact-s2-h1: "Onde estamos"
+contact-s2-p1: "A LICS funciona na Faculdade de Tecnologia da UNICAMP, no campus de Limeira. Encontros e eventos presenciais acontecem lá."
+contact-address-1: "Faculdade de Tecnologia (FT/UNICAMP)"
+contact-address-2: "Rua Paschoal Marmo, 1888, Jardim Nova Itália"
+contact-address-3: "Limeira (SP), 13484-332"
+contact-map-show: "Mostrar mapa"
+contact-map-open: "Abrir no Google Maps"
+contact-map-title: "Mapa da Faculdade de Tecnologia da UNICAMP, em Limeira"
 
 ############
 # Partials #

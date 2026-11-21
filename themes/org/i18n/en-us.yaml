@@ -102,21 +102,42 @@ about-s3-btn1: I want to support LICS
 ###########
 # Contact #
 ###########
-contact-form-fd1: First Name  
-contact-form-fd2: Last Name  
-contact-form-fd3: Email  
-contact-form-fd4: Phone  
-contact-form-fd5: Subject  
-contact-form-select: Select an option...  
-contact-form-fd6: Message  
-contact-form-ck1: I accept the Privacy Policy  
-contact-form-ck2: I want to receive updates about LICS events by email  
-contact-form-btn1: Send
-contact-form-msg-success: Your request has been successfully submitted! We will get in touch with you shortly.
-contact-form-msg-error: There was an error submitting your request. Please try again later.
-contact-form-invalid-email: Please enter a valid email address.
-contact-s2-h1: Location  
-contact-s2-p1: We are a student organization from FT/UNICAMP, located at the Limeira Campus I of the State University of Campinas  
+contact-help-h2: "How we can help"
+contact-help-join: "I want to join LICS"
+contact-help-join-p: "Selection processes are open to UNICAMP students once a semester and announced on our social media. If you have questions before then, send us a message."
+contact-help-event: "Give a talk or propose an event"
+contact-help-event-p: "We host professionals from Brazil and abroad for talks, workshops and CTFs, in person at FT or online."
+contact-help-partner: "Partnerships"
+contact-help-partner-p: "Companies, NGOs and public agencies can support events, offer talks and training, or sponsor the league."
+contact-channels-h2: "Other channels"
+contact-form-h2: "Send us a message"
+contact-form-fd1: "First name"
+contact-form-fd2: "Last name"
+contact-form-fd3: "Email"
+contact-form-fd4: "Phone"
+contact-form-optional: "(optional)"
+contact-form-fd5: "Subject"
+contact-form-fd6: "Message"
+contact-form-hint-default: "Pick a subject above to see what helps us reply."
+contact-form-topic-required: "Pick a subject."
+contact-form-invalid-email: "Enter a valid email address, like name@example.com."
+contact-form-ck1: "I have read and accept the {{ .Policy }}."
+contact-form-ck1-link: "Privacy Policy"
+contact-form-ck2: "Send me news about LICS events by email."
+contact-form-btn1: "Send message"
+contact-form-sending: "Sending…"
+contact-form-msg-error: "We couldn't send it right now. Check your connection and try again; what you wrote is still in the form."
+contact-done-h2: "Message sent"
+contact-done-p: "Thanks for reaching out. We'll reply to the email you gave us. If you don't hear back, write to {{ .Email }}."
+contact-done-again: "Send another message"
+contact-s2-h1: "Where we are"
+contact-s2-p1: "LICS is based at UNICAMP's School of Technology, on the Limeira campus. In-person meetings and events take place there."
+contact-address-1: "School of Technology (FT/UNICAMP)"
+contact-address-2: "Rua Paschoal Marmo, 1888, Jardim Nova Itália"
+contact-address-3: "Limeira, SP, 13484-332, Brazil"
+contact-map-show: "Show map"
+contact-map-open: "Open in Google Maps"
+contact-map-title: "Map of UNICAMP's School of Technology in Limeira"
 
 ############
 # Partials #
