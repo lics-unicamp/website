@@ -13,3 +13,39 @@ partners:
   - name: Casfer
     link: https://www.casfergroup.com/en-us/
     logo: casfer.png
+
+# Photos in static/media/images/about/<image>-800.jpg and -1600.jpg (metadata stripped)
+gallery:
+  - image: fortinet-summit-2025-grupo
+    portrait: false
+    alt: "Five LICS members in front of the Fortinet Cybersecurity Summit Brasil 2025 backdrop"
+    caption: "Fortinet Cybersecurity Summit Brasil 2025"
+    when: "August 2025"
+  - image: fortinet-summit-2025-boas-vindas
+    portrait: false
+    alt: "LICS members at the Fortinet Cybersecurity Summit Brasil 2025 welcome wall"
+    caption: "Fortinet Cybersecurity Summit Brasil 2025"
+    when: "August 2025"
+  - image: fortinet-summit-2025-palestrante
+    portrait: false
+    alt: "Selfie of LICS members with a speaker at the Fortinet Cybersecurity Summit"
+    caption: "With a speaker at the Fortinet Cybersecurity Summit"
+    when: "August 2025"
+  - image: anti-engenharia-reversa-2025
+    portrait: false
+    alt: "Group gathered in a classroom at the Anti-Reverse Engineering Techniques talk"
+    caption: "Anti-Reverse Engineering Techniques, with Gabriel Barbosa (Magalu Cloud)"
+    event: /eventos/tecnicas-antiengenharia-reversa-gabriel-negreira
+    when: "September 2025"
+  - image: aula-pratica-redes
+    portrait: true
+    width: 1496
+    alt: "Renato C. teaching a hands-on networking class, holding a fiber optic cable and showing a projected whois lookup"
+    caption: "Hands-on networking class, with"
+    member: cibero42
+    when: "September 2025"
+  - image: bsides-sp-2026
+    portrait: false
+    alt: "LICS members in front of the Hack the Planet Again backdrop at BSides São Paulo"
+    caption: "BSides São Paulo"
+    when: "May 2026"

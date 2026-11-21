@@ -51,7 +51,24 @@ events-single-s2-h1: Informações
 #########
 # Sobre #
 #########
-about-s2-p2: PROTEGENDO O FUTURO DIGITAL
+about-facts-founded: Fundada em
+about-facts-location: Sede
+about-facts-location-value: FT/UNICAMP, Limeira (SP)
+about-facts-members: Membros ativos
+about-facts-events: Eventos realizados
+about-facts-areas: Áreas
+about-gallery-h2: "A liga em ação"
+about-gallery-label: "Fotos da LICS"
+about-gallery-prev: "Foto anterior"
+about-gallery-next: "Próxima foto"
+about-social-h2: "Nas redes"
+about-social-p1: "Publicamos eventos, palestras gravadas e o dia a dia da liga."
+about-social-asof: "Atualizado em"
+about-social-followers: "seguidores"
+about-social-posts: "publicações"
+about-social-subscribers: "inscritos"
+about-social-videos: "vídeos"
+about-social-views: "visualizações"
 about-s2-h1: Nossa Missão
 about-s3-h1: Parceiros
 about-s3-p1: Nossos parceiros são organizações que apoiam e fortalecem nosso projeto, promovendo treinamentos, palestras e contribuindo financeiramente.

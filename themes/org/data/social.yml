@@ -1,0 +1,14 @@
+# Social media numbers shown on the About page. Update by hand; `as_of` is shown next to them.
+as_of: 2026-11-21
+linkedin:
+  url: https://www.linkedin.com/company/lics-liga-de-ciberseguranca
+  followers: 2020
+instagram:
+  url: https://www.instagram.com/lics_unicamp
+  followers: 735
+  posts: 65
+youtube:
+  url: https://www.youtube.com/@LICSforEducation
+  subscribers: 286
+  videos: 16
+  views: 7501

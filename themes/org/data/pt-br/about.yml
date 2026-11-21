@@ -13,3 +13,39 @@ partners:
   - name: Casfer
     link: https://www.casfergroup.com/pt-br/
     logo: casfer.png
+
+# Photos in static/media/images/about/<image>-800.jpg and -1600.jpg (metadata stripped)
+gallery:
+  - image: fortinet-summit-2025-grupo
+    portrait: false
+    alt: "Cinco membros da LICS em frente ao painel do Fortinet Cybersecurity Summit Brasil 2025"
+    caption: "Fortinet Cybersecurity Summit Brasil 2025"
+    when: "agosto de 2025"
+  - image: fortinet-summit-2025-boas-vindas
+    portrait: false
+    alt: "Membros da LICS no painel de boas-vindas do Fortinet Cybersecurity Summit Brasil 2025"
+    caption: "Fortinet Cybersecurity Summit Brasil 2025"
+    when: "agosto de 2025"
+  - image: fortinet-summit-2025-palestrante
+    portrait: false
+    alt: "Selfie de membros da LICS com um palestrante do Fortinet Cybersecurity Summit"
+    caption: "Com palestrante no Fortinet Cybersecurity Summit"
+    when: "agosto de 2025"
+  - image: anti-engenharia-reversa-2025
+    portrait: false
+    alt: "Grupo reunido em sala de aula na palestra Técnicas de Anti-Engenharia Reversa"
+    caption: "Técnicas de Anti-Engenharia Reversa, com Gabriel Barbosa (Magalu Cloud)"
+    event: /eventos/tecnicas-antiengenharia-reversa-gabriel-negreira
+    when: "setembro de 2025"
+  - image: aula-pratica-redes
+    portrait: true
+    width: 1496
+    alt: "Renato C. ensina redes em uma aula prática, mostrando um cabo de fibra óptica e uma consulta whois projetada"
+    caption: "Aula prática de redes, com"
+    member: cibero42
+    when: "setembro de 2025"
+  - image: bsides-sp-2026
+    portrait: false
+    alt: "Grupo de membros da LICS em frente ao painel Hack the Planet Again do BSides São Paulo"
+    caption: "BSides São Paulo"
+    when: "maio de 2026"

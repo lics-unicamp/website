@@ -5,24 +5,225 @@
     <div style="height: {{ .Site.Params.spacing_size }};"></div>
     <div style="height: {{ .Site.Params.spacing_size }};"></div>
     <div class="container">
-        <div class="row">
+        <div class="row gx-4 gy-5">
             <div class="col-12 col-md-6">
                 <h1 class="mb-4 text-primary">{{ .Title }}</h1>
-                <div>
+                <div class="cust-about-lead">
                     {{- index $contentChildren 0 | safeHTML  -}}
                 </div>
             </div>
-            <div class="col-12 col-md-6">
-                <div class="h-100 w-100 rounded" style="background-image: url('/media/images/background/cyberpunk-haxxer.png'); background-size: cover; background-repeat: no-repeat; background-position: center;">
-                    <div class="h-100 w-100 p-4 rounded d-flex align-items-center" style="background-color: rgb(0, 0, 0, 0.6);">
-                        <p class="fs-1 text-center fw-semibold">{{ T "about-s2-p2" }}</p>
+            {{- /* Facts computed at build time from the site's own content, so they never go stale */ -}}
+            {{- $members := where (where site.RegularPages "Section" "membros") "Params.alumni" "ne" true -}}
+            {{- /* Past events across all languages, so PT and EN show the same count even if an event is in one language only */ -}}
+            {{- $past := dict -}}
+            {{- range site.Sites -}}
+                {{- range where .RegularPages "Section" "eventos" -}}
+                    {{- $key := .TranslationKey -}}
+                    {{- with .Params.eventdate }}{{ if le (time .) now }}{{ $past = merge $past (dict $key true) }}{{ end }}{{ end -}}
+                {{- end -}}
+            {{- end -}}
+            {{- $areas := slice "management" "advisors" "training" "external_relations" "human_resources" "marketing" -}}
+            <div class="col-12 col-md-6 col-lg-5 offset-lg-1">
+                <dl class="cust-facts m-0 p-4 rounded bg-military-black">
+                    <div class="cust-fact">
+                        <dt>{{ T "about-facts-founded" }}</dt>
+                        <dd>2024</dd>
                     </div>
-                </div>
+                    <div class="cust-fact">
+                        <dt>{{ T "about-facts-location" }}</dt>
+                        <dd>{{ T "about-facts-location-value" }}</dd>
+                    </div>
+                    <div class="cust-fact">
+                        <dt>{{ T "about-facts-members" }}</dt>
+                        <dd><a class="cust-fact-link" href="/{{ .Lang }}/membros/">{{ len $members }}</a></dd>
+                    </div>
+                    <div class="cust-fact">
+                        <dt>{{ T "about-facts-events" }}</dt>
+                        <dd><a class="cust-fact-link" href="/{{ .Lang }}/eventos/">{{ len $past }}</a></dd>
+                    </div>
+                    <div class="cust-fact cust-fact-areas">
+                        <dt>{{ T "about-facts-areas" }}</dt>
+                        <dd>
+                            <ul class="list-unstyled m-0">
+                                {{- range $areas }}
+                                {{- $area := . }}
+                                {{- $count := 0 }}
+                                {{- range $members }}{{ if eq (index .Params.areas 0) $area }}{{ $count = add $count 1 }}{{ end }}{{ end }}
+                                {{- if $count }}
+                                <li><a href="/{{ $.Lang }}/membros/#area-{{ $area }}">{{ T (printf "members-list-area-%s" $area) }}</a><span class="cust-count">{{ $count }}</span></li>
+                                {{- end }}
+                                {{- end }}
+                            </ul>
+                        </dd>
+                    </div>
+                </dl>
             </div>
         </div>
     </div>
     <div style="height: {{ .Site.Params.spacing_size }};"></div>
 </section>
+{{- with site.Data.social }}
+<section class="bg-black" aria-labelledby="about-social-title">
+    <div style="height: {{ $.Site.Params.spacing_size }};"></div>
+    <div class="container">
+        <h2 id="about-social-title" class="mb-3 text-primary fs-1">{{ T "about-social-h2" }}</h2>
+        <p class="mb-4">{{ T "about-social-p1" }}</p>
+        <ul class="list-unstyled m-0 row g-3 cust-social">
+            <li class="col-12 col-md-4">
+                <a class="cust-social-link rounded" href="{{ .linkedin.url }}">
+                    <span class="cust-social-name"><span class="bi bi-linkedin" aria-hidden="true"></span>LinkedIn</span>
+                    <span class="cust-social-number">{{ lang.FormatNumber 0 .linkedin.followers }}</span>
+                    <span class="cust-social-detail">{{ T "about-social-followers" }}</span>
+                </a>
+            </li>
+            <li class="col-12 col-md-4">
+                <a class="cust-social-link rounded" href="{{ .instagram.url }}">
+                    <span class="cust-social-name"><span class="bi bi-instagram" aria-hidden="true"></span>Instagram</span>
+                    <span class="cust-social-number">{{ lang.FormatNumber 0 .instagram.followers }}</span>
+                    <span class="cust-social-detail">{{ T "about-social-followers" }}, {{ lang.FormatNumber 0 .instagram.posts }} {{ T "about-social-posts" }}</span>
+                </a>
+            </li>
+            <li class="col-12 col-md-4">
+                <a class="cust-social-link rounded" href="{{ .youtube.url }}">
+                    <span class="cust-social-name"><span class="bi bi-youtube" aria-hidden="true"></span>YouTube</span>
+                    <span class="cust-social-number">{{ lang.FormatNumber 0 .youtube.subscribers }}</span>
+                    <span class="cust-social-detail">{{ T "about-social-subscribers" }}, {{ lang.FormatNumber 0 .youtube.videos }} {{ T "about-social-videos" }}, {{ lang.FormatNumber 0 .youtube.views }} {{ T "about-social-views" }}</span>
+                </a>
+            </li>
+        </ul>
+        <p class="mt-3 mb-0 small cust-social-asof">{{ T "about-social-asof" }} <time datetime="{{ time.Format "2006-01-02" .as_of }}">{{ time.Format ":date_long" .as_of }}</time></p>
+    </div>
+</section>
+{{- end }}
+{{- with $data_index.about.gallery }}
+{{- $total := len . }}
+<section class="bg-black" aria-labelledby="about-gallery-title">
+    <div style="height: {{ $.Site.Params.spacing_size }};"></div>
+    <div class="container">
+        <h2 id="about-gallery-title" class="mb-4 text-primary fs-1">{{ T "about-gallery-h2" }}</h2>
+        {{- /* Own small controller (below) instead of Bootstrap's: the bundled Bootstrap isn't exposed as a global,
+               and we need captions outside the slides so the layout never moves. Captions are stacked in one grid
+               cell, so the block keeps the height of the longest one. */}}
+        <div id="about-gallery" class="cust-gallery" data-interval="2500" aria-roledescription="carousel" aria-label="{{ T "about-gallery-label" }}">
+            <div class="cust-gallery-frame">
+                {{- range $i, $photo := . }}
+                {{- $base := printf "/media/images/about/%s" .image }}
+                {{- $full := .width | default 1600 }}{{- $w := slice (div $full 2) $full }}
+                <div class="cust-gallery-item{{ if eq $i 0 }} is-active{{ end }}{{ if .portrait }} is-portrait{{ end }}" role="group" aria-roledescription="slide" aria-label="{{ add $i 1 }} / {{ $total }}"{{ if gt $i 0 }} aria-hidden="true"{{ end }}>
+                    {{- if .portrait }}
+                    <img class="cust-gallery-backdrop" src="{{ $base }}-800.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+                    {{- end }}
+                    <img class="cust-gallery-photo" src="{{ $base }}-1600.jpg"
+                         srcset="{{ $base }}-800.jpg {{ index $w 0 }}w, {{ $base }}-1600.jpg {{ index $w 1 }}w"
+                         sizes="(min-width: 1400px) 1296px, 100vw"
+                         alt="{{ .alt }}"{{ if gt $i 0 }} loading="lazy"{{ end }} decoding="async">
+                </div>
+                {{- end }}
+            </div>
+            <div class="cust-gallery-bottom">
+                <div class="cust-gallery-captions" aria-live="off">
+                    {{- range $i, $photo := . }}
+                    <p class="cust-gallery-caption m-0{{ if eq $i 0 }} is-active{{ end }}"{{ if gt $i 0 }} aria-hidden="true"{{ end }}>
+                        {{- $event := "" }}{{ with .event }}{{ $event = site.GetPage . }}{{ end }}
+                        {{- if $event }}
+                        <a class="fw-semibold cust-gallery-link" href="{{ $event.RelPermalink }}"{{ if gt $i 0 }} tabindex="-1"{{ end }}>{{ .caption }}</a>
+                        {{- else }}
+                        <span class="fw-semibold">{{ .caption }}</span>
+                        {{- end }}
+                        {{- with .member }}{{ with site.GetPage (printf "/membros/%s" .) }}
+                        <a class="fw-semibold cust-gallery-link" href="{{ .RelPermalink }}"{{ if gt $i 0 }} tabindex="-1"{{ end }}>{{ .Title }}</a>
+                        {{- end }}{{ end }}
+                        <span class="cust-gallery-when">{{ .when }}</span>
+                    </p>
+                    {{- end }}
+                </div>
+                <div class="cust-gallery-controls">
+                    <div class="cust-gallery-dots">
+                        {{- range $i, $photo := . }}
+                        <button type="button" data-to="{{ $i }}"{{ if eq $i 0 }} class="is-active" aria-current="true"{{ end }} aria-label="{{ add $i 1 }} / {{ $total }}"></button>
+                        {{- end }}
+                    </div>
+                    <button class="btn btn-outline-primary rounded-circle" type="button" data-step="-1">
+                        <span class="bi bi-chevron-left" aria-hidden="true"></span>
+                        <span class="visually-hidden">{{ T "about-gallery-prev" }}</span>
+                    </button>
+                    <button class="btn btn-outline-primary rounded-circle" type="button" data-step="1">
+                        <span class="bi bi-chevron-right" aria-hidden="true"></span>
+                        <span class="visually-hidden">{{ T "about-gallery-next" }}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script>
+            (function () {
+                var el = document.getElementById('about-gallery');
+                if (!el) { return; }
+                var items = el.querySelectorAll('.cust-gallery-item');
+                var captions = el.querySelectorAll('.cust-gallery-caption');
+                var dots = el.querySelectorAll('[data-to]');
+                var delay = Number(el.dataset.interval) || 2500;
+                var current = 0, timer = null, stopped = false, hovering = false;
+
+                function mark(list, i, attr) {
+                    list.forEach(function (node, k) {
+                        var on = k === i;
+                        node.classList.toggle('is-active', on);
+                        if (attr === 'hidden') {
+                            node.toggleAttribute('aria-hidden', !on);
+                            node.querySelectorAll('a').forEach(function (a) { on ? a.removeAttribute('tabindex') : a.setAttribute('tabindex', '-1'); });
+                        } else {
+                            on ? node.setAttribute('aria-current', 'true') : node.removeAttribute('aria-current');
+                        }
+                    });
+                }
+                function go(i) {
+                    current = (i + items.length) % items.length;
+                    mark(items, current, 'hidden');
+                    mark(captions, current, 'hidden');
+                    mark(dots, current, 'current');
+                    restart();
+                }
+                function restart() {
+                    clearTimeout(timer);
+                    if (!stopped && !hovering && !document.hidden) { timer = setTimeout(function () { go(current + 1); }, delay); }
+                }
+
+                el.querySelectorAll('[data-step]').forEach(function (b) { b.addEventListener('click', function () { go(current + Number(b.dataset.step)); }); });
+                dots.forEach(function (b) { b.addEventListener('click', function () { go(Number(b.dataset.to)); }); });
+                /* Hold still while the pointer or keyboard focus is on the photos, so a caption link can be clicked */
+                el.addEventListener('mouseenter', function () { hovering = true; restart(); });
+                el.addEventListener('mouseleave', function () { hovering = false; restart(); });
+                el.addEventListener('focusin', function () { hovering = true; restart(); });
+                el.addEventListener('focusout', function () { hovering = false; restart(); });
+                document.addEventListener('visibilitychange', restart);
+
+                var startX = null;
+                el.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+                el.addEventListener('touchend', function (e) {
+                    if (startX === null) { return; }
+                    var dx = e.changedTouches[0].clientX - startX;
+                    if (Math.abs(dx) > 40) { go(current + (dx < 0 ? 1 : -1)); }
+                    startX = null;
+                });
+
+                /* Hidden slides never trigger lazy loading on their own: fetch every photo once the gallery is near the screen */
+                function loadAll() { el.querySelectorAll('img[loading="lazy"]').forEach(function (img) { img.loading = 'eager'; }); }
+                if ('IntersectionObserver' in window) {
+                    var io = new IntersectionObserver(function (entries) {
+                        if (entries[0].isIntersecting) { loadAll(); io.disconnect(); }
+                    }, { rootMargin: '600px 0px' });
+                    io.observe(el);
+                } else { loadAll(); }
+
+                /* Visitors who turned off animations get a still gallery they move by hand */
+                stopped = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                restart();
+            })();
+        </script>
+    </div>
+    <div style="height: {{ $.Site.Params.spacing_size }};"></div>
+</section>
+{{- end }}
 <section class="bg-black">
     <div style="height: {{ .Site.Params.spacing_size }};"></div>
         <div class="container p-5 rounded bg-military-black">
