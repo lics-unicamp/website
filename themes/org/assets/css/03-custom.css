@@ -147,3 +147,38 @@ select option:checked {
   0%{transform:translate(0px, 100px); opacity: 0;}
   100%{transform:translate(0px, 0); opacity: 1;}
 }
+/* Member achievements */
+.cust-achievement {
+    background-color: rgba(0, 0, 0, 0.18);
+    border: 1px solid transparent;
+    transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.cust-achievement:hover {
+    background-color: rgba(0, 0, 0, 0.32);
+    border-color: var(--bs-primary);
+}
+
+.cust-achievement-icon {
+    flex-shrink: 0;
+    transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cust-achievement:hover .cust-achievement-icon {
+    transform: scale(1.08) rotate(-4deg);
+}
+
+.cust-achievement-desc {
+    opacity: 0.75;
+    line-height: 1.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cust-achievement,
+    .cust-achievement-icon {
+        transition: none;
+    }
+    .cust-achievement:hover .cust-achievement-icon {
+        transform: none;
+    }
+}

@@ -10,7 +10,7 @@ areas:
   - "management"
   - "president"
 badges:
-  - ""
+  - "founding_member"
 translationKey: "member_NandaB2"
 ---
 ## Sobre

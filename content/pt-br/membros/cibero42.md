@@ -11,6 +11,7 @@ areas:
   - "training"
 badges:
   - "website_contributor"
+  - "founding_member"
 translationKey: "member_cibero42"
 ---
 Olá agente, bom ver você aqui!

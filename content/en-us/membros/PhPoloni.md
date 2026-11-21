@@ -10,7 +10,7 @@ points: 0
 areas:
   - "management"
 badges:
-  - ""
+  - "founding_member"
 translationKey: "member_PhPoloni"
 ---
 ## Sobre

@@ -10,7 +10,7 @@ points: 0
 areas:
   - "human_resources"
 badges:
-  - ""
+  - "founding_member"
 translationKey: "member_adrianokenzo"
 ---
 ## Sobre

@@ -9,7 +9,7 @@ points: 0
 areas:
   - "training"
 badges:
-  - ""
+  - "founding_member"
 translationKey: "member_vitorfranchini"
 ---
 ## Sobre
