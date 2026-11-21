@@ -1,13 +1,11 @@
 ---
 title: "Who We Are"
-description: "About"
+description: "LICS is UNICAMP's cybersecurity league, run by students of the School of Technology in Limeira, Brazil."
 translationKey: "about"
 ---
 
-**LICS – UNICAMP Cybersecurity League** was founded in 2024 by a group of students passionate about digital security, with the goal of promoting knowledge and skill development in the field of cybersecurity.
+**LICS - UNICAMP Cybersecurity League** is a student organization founded in 2024 by students of the School of Technology (FT/UNICAMP) in Limeira, Brazil. It brings together students who want to learn digital security hands-on: studying as a group, taking part in competitions, bringing industry professionals in for talks and producing technical content.
 
-Our organization serves as a space for learning, research, and outreach, connecting the academic community to the professional market and encouraging the development of innovative solutions for current digital security challenges.
+The league is organized into areas. **Training** runs the members' studies and technical preparation. **External Relations** brings in speakers and partners. **Human Resources** looks after members and runs the selection processes. **Marketing** shares what the league does. The **Board**, supported by the **Advisors**, coordinates the whole.
 
-Through workshops, competitions, lectures, and hands-on projects, we prepare students to face the real world of cybersecurity, always focusing on ethics, responsibility, and technical excellence.
-
-Our members have access to exclusive resources, mentorship from experienced professionals, and networking opportunities that broaden their career perspectives and contribute to a safer digital environment for everyone.
+New members join through selection processes announced on our channels. If you want to join, propose an event or support the league, [get in touch](/en-us/contato/).

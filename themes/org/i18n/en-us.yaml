@@ -50,7 +50,24 @@ events-single-s2-h1: Information
 #########
 # About #
 #########
-about-s2-p2: PROTECTING THE DIGITAL FUTURE  
+about-facts-founded: Founded
+about-facts-location: Based at
+about-facts-location-value: FT/UNICAMP, Limeira, Brazil
+about-facts-members: Active members
+about-facts-events: Events held
+about-facts-areas: Areas
+about-gallery-h2: "The league in action"
+about-gallery-label: "LICS photos"
+about-gallery-prev: "Previous photo"
+about-gallery-next: "Next photo"
+about-social-h2: "On social media"
+about-social-p1: "We post events, recorded talks and the day-to-day of the league."
+about-social-asof: "Updated"
+about-social-followers: "followers"
+about-social-posts: "posts"
+about-social-subscribers: "subscribers"
+about-social-videos: "videos"
+about-social-views: "views"
 about-s2-h1: Our Mission  
 about-s3-h1: Partners  
 about-s3-p1: Our partners are organizations that support and strengthen our project by promoting training sessions, lectures, and contributing financially.  
