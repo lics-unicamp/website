@@ -7,3 +7,16 @@ type:
     value: CTF
   - key: course
     value: Curso
+# Event series. `key` is what goes in an event's `series:` front matter; `description` is optional.
+series:
+  - key: lics-enigma
+    name: LICS ENIGMA
+  - key: cyber-fest-2026
+    name: CYBER FEST 2026
+  - key: offsec-fest
+    name: OFFSEC FEST
+  - key: lics-cyberfestival-2025
+    name: LICS CYBERFESTIVAL 2025
+  - key: lics-convida
+    name: LICS Convida
+    description: Participações especiais

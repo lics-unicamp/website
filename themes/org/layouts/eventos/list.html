@@ -1,75 +1,137 @@
 {{ define "main" }}
-{{ $data_index := index site.Data site.Language.Lang }}
-<section class="bg-black">
-    <div style="height: {{ .Site.Params.spacing_size }};"></div>
-    <div style="height: {{ .Site.Params.spacing_size }};"></div>
-    <div class="container">
-        <div>
-            <h1 class="text-center text-primary">{{ T "events-list-s1-h1" }}</h1>
-            <p class="text-center">{{ T "events-list-s1-p1" }}</p>
-        </div>
-    </div>
-    <div style="height: {{ .Site.Params.spacing_size }};"></div>
-</section>
-<section class="bg-black">
-    <div style="height: {{ .Site.Params.spacing_size }};"></div>
-    <div class="container">
-        <div class="row g-4">
-            {{ $pages := where .Pages "Params.eventdate" "ne" nil }}
-            {{ $sortedPages := sort $pages ".Params.eventdate" "desc" }}
-            {{ range $sortedPages }}
-                <div class="col-12 col-lg-6">
-                    <div class="h-100 card bg-military-black">
-                        <div class="card-body">
-                            <div class="h-100 d-flex flex-column justify-content-between">
-                                <div class="flex-grow-1">
-                                    <div class="d-flex flex-column justify-content-between">
-                                        <h3 class="fw-semibold">
-                                            {{ .Title }}
-                                            {{ $country := .Params.country }}
-                                            {{ range $i, $c := $data_index.countries }}
-                                                {{ if eq $c.isocode $country }}
-                                                    <span data-bs-toggle="tooltip" title="{{ $c.speakermsg }}">{{ $c.emoji }}</span>
-                                                {{ end }}
-                                            {{ end }}
-                                        </h3>
-                                        <p>
-                                            {{ if .Params.ispublic}}
-                                            <span class="me-1 badge bg-success">{{ T "event-list-card-public1" }}</span>
-                                            {{ else }}
-                                            <span class="me-1 badge bg-danger">{{ T "event-list-card-public2" }}</span>
-                                            {{ end }}
+{{- $events := sort (where .Pages "Params.eventdate" "ne" nil) ".Params.eventdate" "desc" -}}
+{{- $upcoming := slice -}}
+{{- $past := slice -}}
+{{- range $events -}}
+    {{- if gt (time .Params.eventdate) now }}{{ $upcoming = $upcoming | append . }}{{ else }}{{ $past = $past | append . }}{{ end -}}
+{{- end -}}
+{{- $upcoming = sort $upcoming ".Params.eventdate" "asc" -}}
 
-                                            {{ $eventtype := .Params.format }}
-                                            {{ range $i, $c := $data_index.event.type }}
-                                                {{ if eq $c.key $eventtype }}
-                                                    <span class="me-1 badge bg-white text-black">{{ $c.value }}</span>
-                                                {{ end }}
-                                            {{ end }}
-                                        </p>
-                                        <p class="d-flex flex-wrap">
-                                            <div class="bi bi-calendar me-1 mb-1">&nbsp;{{ (.Params.eventdate | time).Format "2006-01-02T15:04:05Z07:00" }}</div>
-                                            <div class="bi bi-hourglass-split">&nbsp;{{ .Params.duration }}</div>
-                                        </p>
-                                        <p><span class="bi bi-person"></span>&nbsp;{{ .Params.speaker }}</p>
-                                    </div>
-                                </div>
-                                {{ if gt (.Params.eventdate | time) (now) }}
-                                <a class="btn btn-primary" href="{{ .Params.inscriptionlink }}">{{ T "events-list-card-btn1" }}</a>
-                                <a class="mt-2 btn btn-outline-light" href="{{ .Permalink }}">{{ T "events-list-card-btn2" }}</a>
-                                {{ else }}
-                                <a class="mt-2 btn btn-secondary" href="{{ .Permalink }}">{{ T "events-list-card-btn3" }}</a>
-                                {{ end }}
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            {{ end }}
-        </div>
+<section class="bg-black">
+    <div style="height: {{ .Site.Params.spacing_size }};"></div>
+    <div style="height: {{ .Site.Params.spacing_size }};"></div>
+    <div class="container cust-events-head">
+        <h1 class="text-primary">{{ T "events-h1" }}</h1>
+        <p class="lead mb-0">{{ T "events-intro" (dict "Channel" (printf `<a href="%s">%s</a>` site.Data.social.youtube.url (T "events-intro-channel"))) | safeHTML }}</p>
     </div>
-    
+</section>
+
+<section class="bg-black cust-events-section" aria-labelledby="events-next">
+    <div class="container">
+        <h2 id="events-next" class="cust-events-h2">{{ T "events-next-h2" }}</h2>
+        {{- with $upcoming }}
+        <div class="row g-4">
+            {{- range . }}
+            {{- $start := time .Params.eventdate }}
+            {{- $duration := partial "event/duration.html" .Params.duration }}
+            {{- $series := partial "event/series-name.html" .Params.series }}
+            <div class="col-12 col-lg-6">
+                <article class="cust-event-next h-100" data-start="{{ $start.Unix }}">
+                    <p class="cust-event-day" aria-hidden="true">
+                        <span class="cust-event-day-num">{{ $start.Format "02" }}</span>
+                        <span>{{ $start | time.Format "Jan" }}</span>
+                    </p>
+                    <div class="cust-event-next-body">
+                        {{- with $series }}<p class="cust-event-series">{{ . }}</p>{{ end }}
+                        <h3 class="cust-event-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                        <p class="cust-event-who">{{ .Params.speaker }}{{ with .Params.company }}, {{ . }}{{ end }}</p>
+                        <p class="cust-event-when">
+                            <time datetime="{{ $start.Format "2006-01-02T15:04:05-07:00" }}">{{ $start | time.Format ":date_full" }}, {{ $start.Format "15:04" }}</time>
+                            {{- with $duration }} ({{ . }}){{ end }}
+                        </p>
+                        {{ partial "event/tags.html" (dict "page" .) }}
+                        <div class="cust-event-actions">
+                            {{- with .Params.inscriptionlink }}
+                            <a class="btn btn-primary cust-event-signup" href="{{ . }}">{{ T "events-signup" }}</a>
+                            {{- else }}
+                            <span class="cust-event-soon">{{ T "events-signup-soon" }}</span>
+                            {{- end }}
+                            <a class="btn btn-outline-light" href="{{ .RelPermalink }}">{{ T "events-details" }}<span class="visually-hidden">: {{ .Title }}</span></a>
+                        </div>
+                        <p class="cust-event-ended" hidden>{{ T "events-ended" }}</p>
+                    </div>
+                </article>
+            </div>
+            {{- end }}
+        </div>
+        {{- else }}
+        <p class="cust-events-empty">{{ T "events-next-empty" (dict "Contact" (printf `<a href="/%s/contato/">%s</a>` $.Lang (T "events-next-empty-contact"))) | safeHTML }}</p>
+        {{- end }}
+    </div>
+</section>
+
+<section class="bg-black cust-events-section" aria-labelledby="events-past">
+    <div class="container">
+        <div class="cust-events-past-head">
+            <h2 id="events-past" class="cust-events-h2 mb-0">{{ T "events-past-h2" }} <span class="cust-events-count">{{ len $past }}</span></h2>
+        </div>
+
+        {{- /* Group by series, then members-only, then year (see event/group-key.html); groups keep the order of their latest event */}}
+        {{- $keys := slice }}
+        {{- range $past }}
+            {{- $key := partial "event/group-key.html" . }}
+            {{- if not (in $keys $key) }}{{ $keys = $keys | append $key }}{{ end }}
+        {{- end }}
+
+        {{- range $keys }}
+        {{- $key := . }}
+        {{- $items := slice }}
+        {{- range $past }}
+            {{- if eq (partial "event/group-key.html" .) $key }}{{ $items = $items | append . }}{{ end }}
+        {{- end }}
+        {{- $first := index $items (sub (len $items) 1) }}
+        {{- $last := index $items 0 }}
+        {{- $series := partial "event/series-name.html" $last.Params.series }}
+        <section class="cust-event-group" aria-labelledby="group-{{ $key }}">
+            <header class="cust-event-group-head">
+                <h3 id="group-{{ $key }}">
+                    {{- if $series }}{{ $series }}{{ else if eq $key "members" }}{{ T "events-group-members" }}{{ else }}{{ T "events-group-year" (dict "Year" (time $last.Params.eventdate).Year) }}{{ end -}}
+                </h3>
+                <p>
+                    {{- $a := time $first.Params.eventdate }}{{ $b := time $last.Params.eventdate }}
+                    {{- $range := "" }}
+                    {{- if eq ($a.Format "2006-01") ($b.Format "2006-01") }}{{ $range = T "events-range-month" (dict "Month" ($b | time.Format "January") "Year" $b.Year) }}
+                    {{- else if eq $a.Year $b.Year }}{{ $range = T "events-range-months" (dict "From" ($a | time.Format "January") "To" ($b | time.Format "January") "Year" $b.Year) }}
+                    {{- else }}{{ $range = T "events-range-years" (dict "From" ($a | time.Format "January") "FromYear" $a.Year "To" ($b | time.Format "January") "ToYear" $b.Year) }}{{ end }}
+                    {{- with partial "event/series-description.html" $last.Params.series }}{{ . }}, {{ end }}{{ $range }}, {{ T "events-count" (len $items) -}}
+                </p>
+            </header>
+            <ol class="cust-event-list list-unstyled">
+                {{- range $items }}
+                {{- $e := . }}
+                {{- $start := time .Params.eventdate }}
+                <li class="cust-event-row">
+                    <time class="cust-event-date" datetime="{{ $start.Format "2006-01-02" }}">{{ $start.Format "02" }} {{ $start | time.Format "Jan" }}</time>
+                    <div class="cust-event-main">
+                        <a class="cust-event-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                        <p class="cust-event-who">{{ .Params.speaker }}{{ with .Params.company }}{{ if ne . $e.Params.speaker }}, {{ . }}{{ end }}{{ end }}</p>
+                        {{ partial "event/tags.html" (dict "page" . "hideAccess" (eq $key "members")) }}
+                    </div>
+                    {{- with .Params.video }}
+                    <a class="btn btn-sm btn-outline-primary cust-event-watch" href="https://www.youtube.com/watch?v={{ . }}">
+                        <span class="bi bi-play-fill" aria-hidden="true"></span>{{ T "events-watch" }}<span class="visually-hidden">: {{ $e.Title }}</span>
+                    </a>
+                    {{- end }}
+                </li>
+                {{- end }}
+            </ol>
+        </section>
+        {{- end }}
+    </div>
     <div style="height: {{ .Site.Params.spacing_size }};"></div>
 </section>
+
+<script>
+    (function () {
+        /* The site is rebuilt weekly; once an "upcoming" event has started, drop its sign-up button */
+        var now = Date.now() / 1000;
+        document.querySelectorAll('.cust-event-next[data-start]').forEach(function (card) {
+            if (Number(card.dataset.start) < now) {
+                card.querySelectorAll('.cust-event-signup, .cust-event-soon').forEach(function (el) { el.remove(); });
+                card.querySelector('.cust-event-ended').hidden = false;
+            }
+        });
+
+    })();
+</script>
 {{ end }}

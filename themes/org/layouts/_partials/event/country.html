@@ -1,0 +1,5 @@
+{{- /* Speaker's country name in the page language (text, not a flag emoji: Windows has no flag glyphs) */ -}}
+{{- $name := "" -}}
+{{- $code := .Params.country -}}
+{{- range (index site.Data site.Language.Lang).countries }}{{ if and $code (eq .isocode $code) }}{{ $name = .name }}{{ end }}{{ end -}}
+{{- return $name -}}

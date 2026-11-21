@@ -6,7 +6,7 @@ country: "br"
 description: "In an exclusive lecture for LICS members, Gabriel Barbosa (Magalu Cloud) will demonstrate low-level techniques to make reverse engineering more difficult."
 eventdate: 2025-09-04T12:00:00-03:00
 duration: "2:00"
-format: "speech"
+format: "workshop"
 inscriptionlink: ""
 ispublic: false
 translationKey: "tecnicas-antiengenharia-reversa-gabriel-negreira"

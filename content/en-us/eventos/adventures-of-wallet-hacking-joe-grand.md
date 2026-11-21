@@ -10,6 +10,8 @@ format: "speech"
 inscriptionlink: "https://docs.google.com/forms/d/e/1FAIpQLSdUQ0MyyghPaSMOlnKiCHs7XgsAmjAZ2NZzUMiGeNbTBPOe1w/viewform"
 ispublic: true
 translationKey: "event_adventures-of-wallet-hacking-joe-grand"
+series: "lics-enigma"
+video: "0yWLxFqtFMQ"
 ---
 
 We are honored to welcome Joe Grand (also known as Kingpin), a legendary hardware hacker, computer engineer, and former member of the iconic hacker collective L0pht Heavy Industries.

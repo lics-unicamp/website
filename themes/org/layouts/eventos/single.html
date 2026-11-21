@@ -1,76 +1,111 @@
 {{ define "main" }}
-{{ $data_index := index site.Data site.Language.Lang }}
-<section class="bg-black">
-    <div style="height: {{ .Site.Params.spacing_size }};"></div>
-    <div style="height: {{ .Site.Params.spacing_size }};"></div>
-    <div class="container">
-        <div class="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-start">
-            <div class="d-flex flex-column">
-                <h1 class="text-primary text-center">
-                    {{ .Title }}
-                    {{ $country := .Params.country }}
-                    {{ range $i, $c := $data_index.countries }}
-                        {{ if eq $c.isocode $country }}
-                            <span data-bs-toggle="tooltip" title="{{ $c.speakermsg }}">{{ $c.emoji }}</span>
-                        {{ end }}
-                    {{ end }}
-                </h1>
-                <p class="mt-4 text-center">{{ .Description }}</p>
-            </div>
-        </div>
-    </div>
-    <div style="height: {{ .Site.Params.spacing_size }};"></div>
-</section>
-<section class="bg-black">
-    <div class="container d-flex justify-content-center">
-        <div class="card bg-secondary align-self-center d-flex align-items-center" style="max-width: 800px;">
-            <div class="w-100 card-body">
-                <h2 class="h4 text-center">{{ T "events-single-s2-h1"}}</h2>
-                <div class="row fs-5">
-                    <p class="col-md-6">
-                        <span class="bi bi-person-fill text-primary"></span>&nbsp;{{ .Params.speaker }}
-                    </p>
-                    <p class="col-md-6">
-                        <span class="bi bi-building-fill text-primary"></span>&nbsp;{{ .Params.company }}
-                    </p>
+{{- $data := index site.Data site.Language.Lang -}}
+{{- $start := time .Params.eventdate -}}
+{{- $isNext := gt $start now -}}
+{{- $duration := partial "event/duration.html" .Params.duration -}}
+{{- $series := partial "event/series-name.html" .Params.series -}}
+{{- $formatName := "" -}}
+{{- range $data.event.type }}{{ if eq .key $.Params.format }}{{ $formatName = .value }}{{ end }}{{ end -}}
 
-                    <p class="col-md-6">
-                        <span class="bi bi-easel2 text-primary"></span>
-                        {{ $eventtype := .Params.format }}
-                        {{ range $i, $c := $data_index.event.type }}
-                            {{ if eq $c.key $eventtype }}
-                                {{ $c.value }}
-                            {{ end }}
-                        {{ end }}
-                    </p>
-                    <p class="col-md-6">
-                        <span class="bi bi-people-fill text-primary"></span>
-                        {{ if .Params.ispublic}}
-                        {{ T "event-list-card-public1" }}
-                        {{ else }}
-                        {{ T "event-list-card-public2" }}
-                        {{ end }}
-                    </p>
-                    <p class="col-md-6">
-                        <span class="bi bi-calendar text-primary"></span>&nbsp;{{ (.Params.eventdate | time).Format "2006-01-02T15:04:05Z07:00" }}
-                    </p>
-                    <p class="col-md-6">
-                        <span class="bi bi-hourglass-split text-primary">&nbsp;</span>{{ .Params.duration }}
-                    </p>
-                    
-                </div>
-                {{ if gt (.Params.eventdate | time) (now) }}
-                <a class="btn btn-primary w-100" href="{{ .Params.inscriptionlink }}">{{ T "events-list-card-btn1" }}</a>
-                {{ end }}
-            </div>
-        </div>
-    </div>
-    <div style="height: {{ .Site.Params.spacing_size }};"></div>
-</section>
 <section class="bg-black">
-    <div class="container">
-        {{ .Content }}
+    <div style="height: {{ .Site.Params.spacing_size }};"></div>
+    <div style="height: {{ .Site.Params.spacing_size }};"></div>
+    <div class="container cust-event-page" data-start="{{ $start.Unix }}">
+        <a class="cust-event-back" href="/{{ .Lang }}/eventos/"><span class="bi bi-chevron-left" aria-hidden="true"></span>{{ T "events-all" }}</a>
+
+        <header class="cust-event-header">
+            {{- with $series }}<p class="cust-event-series">{{ . }}</p>{{ end }}
+            <h1 class="text-primary">{{ .Title }}</h1>
+            <p class="lead">{{ .Description }}</p>
+            {{- if $isNext }}
+            <div class="cust-event-actions">
+                {{- with .Params.inscriptionlink }}
+                <a class="btn btn-primary btn-lg cust-event-signup" href="{{ . }}">{{ T "events-signup" }}</a>
+                {{- else }}
+                <span class="cust-event-soon">{{ T "events-signup-soon" }}</span>
+                {{- end }}
+            </div>
+            <p class="cust-event-ended" hidden>{{ T "events-ended" }}</p>
+            {{- end }}
+        </header>
+
+
+        <dl class="cust-event-facts">
+            <div><dt>{{ T "events-fact-speaker" }}</dt><dd>{{ .Params.speaker }}{{ with partial "event/country.html" . }} <span class="cust-event-country">({{ . }})</span>{{ end }}</dd></div>
+            {{- with .Params.company }}{{ if ne . $.Params.speaker }}<div><dt>{{ T "events-fact-company" }}</dt><dd>{{ . }}</dd></div>{{ end }}{{ end }}
+            <div><dt>{{ T "events-fact-date" }}</dt><dd><time datetime="{{ $start.Format "2006-01-02T15:04:05-07:00" }}">{{ $start | time.Format ":date_full" }}</time></dd></div>
+            <div><dt>{{ T "events-fact-time" }}</dt><dd>{{ $start.Format "15:04" }}, {{ T "events-timezone" }}</dd></div>
+            {{- with $duration }}<div><dt>{{ T "events-fact-duration" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+            {{- with $formatName }}<div><dt>{{ T "events-fact-format" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+            <div><dt>{{ T "events-fact-access" }}</dt><dd>{{ if .Params.ispublic }}{{ T "events-public" }}{{ else }}{{ T "events-members-only" }}{{ end }}</dd></div>
+        </dl>
+
+        {{- with .Params.video }}
+        {{- /* Lightweight embed: thumbnail until clicked, so YouTube loads nothing (and sets no cookies) before the visitor asks */}}
+        <figure class="cust-video">
+            <button type="button" class="cust-video-play" data-video="{{ . }}" data-title="{{ $.Title }}">
+                <img src="https://i.ytimg.com/vi/{{ . }}/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360">
+                <span class="cust-video-icon" aria-hidden="true"><span class="bi bi-play-fill"></span></span>
+                <span class="visually-hidden">{{ T "events-video-play" }}: {{ $.Title }}</span>
+            </button>
+            <figcaption><a href="https://www.youtube.com/watch?v={{ . }}">{{ T "events-video-youtube" }}</a></figcaption>
+        </figure>
+        {{- end }}
+
+        {{- with .Content }}
+        <div class="cust-event-body">{{ . }}</div>
+        {{- end }}
+
+        {{- with .Params.series }}
+        {{- $key := . }}
+        {{- $others := where (where $.CurrentSection.Pages "Params.series" $key) "RelPermalink" "ne" $.RelPermalink }}
+        {{- with sort $others ".Params.eventdate" "asc" }}
+        <nav class="cust-event-more" aria-labelledby="event-more-title">
+            <h2 id="event-more-title" class="h4">{{ T "events-more-series" (dict "Series" $series) }}</h2>
+            <ol class="cust-event-list list-unstyled">
+                {{- range . }}
+                {{- $d := time .Params.eventdate }}
+                <li class="cust-event-row">
+                    <time class="cust-event-date" datetime="{{ $d.Format "2006-01-02" }}">{{ $d.Format "02" }} {{ $d | time.Format "Jan" }}</time>
+                    <div class="cust-event-main">
+                        <a class="cust-event-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                        <p class="cust-event-who">{{ .Params.speaker }}</p>
+                    </div>
+                    {{- $e := . }}
+                    {{- with .Params.video }}
+                    <a class="btn btn-sm btn-outline-primary cust-event-watch" href="https://www.youtube.com/watch?v={{ . }}">
+                        <span class="bi bi-play-fill" aria-hidden="true"></span>{{ T "events-watch" }}<span class="visually-hidden">: {{ $e.Title }}</span>
+                    </a>
+                    {{- end }}
+                </li>
+                {{- end }}
+            </ol>
+        </nav>
+        {{- end }}
+        {{- end }}
     </div>
     <div style="height: {{ .Site.Params.spacing_size }};"></div>
 </section>
+
+<script>
+    (function () {
+        var page = document.querySelector('.cust-event-page');
+        if (page && Number(page.dataset.start) < Date.now() / 1000) {
+            page.querySelectorAll('.cust-event-signup, .cust-event-soon').forEach(function (el) { el.remove(); });
+            var ended = page.querySelector('.cust-event-ended');
+            if (ended) { ended.hidden = false; }
+        }
+        document.querySelectorAll('.cust-video-play').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var frame = document.createElement('iframe');
+                frame.src = 'https://www.youtube-nocookie.com/embed/' + btn.dataset.video + '?autoplay=1&rel=0';
+                frame.title = btn.dataset.title;
+                frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                frame.allowFullscreen = true;
+                btn.replaceWith(frame);
+                frame.focus();
+            });
+        });
+    })();
+</script>
 {{ end }}

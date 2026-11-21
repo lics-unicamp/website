@@ -1,0 +1,4 @@
+{{- $name := "" -}}
+{{- $data := index site.Data site.Language.Lang -}}
+{{- with . }}{{ $key := . }}{{ range $data.event.series }}{{ if eq .key $key }}{{ $name = .name }}{{ end }}{{ end }}{{ end -}}
+{{- return $name -}}

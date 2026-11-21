@@ -6,7 +6,7 @@ country: "br"
 description: "Em uma palestra exclusiva para membros da LICS, Gabriel Barbosa (Magalu Cloud) mostra técnicas de baixo nível para dificultar a engenharia reversa."
 eventdate: 2025-09-04T12:00:00-03:00
 duration: "2:00"
-format: "speech"
+format: "workshop"
 inscriptionlink: ""
 ispublic: false
 translationKey: "tecnicas-antiengenharia-reversa-gabriel-negreira"

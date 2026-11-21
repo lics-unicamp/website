@@ -10,6 +10,8 @@ format: "speech"
 inscriptionlink: ""
 ispublic: true
 translationKey: "event_ferramentas-para-hardware-hacking-julio-flora"
+series: "cyber-fest-2026"
+video: "SI9crI218tI"
 ---
 
 Temos a honra de receber Julio Della Flora, uma das maiores referências do Brasil quando o assunto é explorar e proteger dispositivos na camada de hardware.

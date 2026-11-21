@@ -10,6 +10,8 @@ format: "speech"
 inscriptionlink: "https://docs.google.com/forms/d/e/1FAIpQLSdUQ0MyyghPaSMOlnKiCHs7XgsAmjAZ2NZzUMiGeNbTBPOe1w/viewform"
 ispublic: true
 translationKey: "event_hacking-the-hackers-assaf-morag"
+series: "lics-enigma"
+video: "3lvk2bsaY58"
 ---
 
 **Esta palestra ocorrerá em inglês**

@@ -10,6 +10,7 @@ format: "speech"
 inscriptionlink: "https://docs.google.com/forms/d/e/1FAIpQLSdUQ0MyyghPaSMOlnKiCHs7XgsAmjAZ2NZzUMiGeNbTBPOe1w/viewform"
 ispublic: true
 translationKey: "event_uma-espiada-no-kernel-do-windows-fernando-silva"
+series: "lics-enigma"
 ---
 
 Temos a honra de receber Fernando Silva, Senior Windows Kernel Engineer, fundador da DriverEntry Kernel Development e especialista com mais de 20 anos de experiência em software de baixo nível em C/C++.

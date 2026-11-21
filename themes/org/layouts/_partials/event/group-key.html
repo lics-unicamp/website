@@ -1,0 +1,4 @@
+{{- /* Which list group an event goes in: its series; members-only events outside a series share one group; the rest group by year */ -}}
+{{- $key := .Params.series -}}
+{{- if not $key }}{{ if .Params.ispublic }}{{ $key = printf "year-%d" (time .Params.eventdate).Year }}{{ else }}{{ $key = "members" }}{{ end }}{{ end -}}
+{{- return $key -}}

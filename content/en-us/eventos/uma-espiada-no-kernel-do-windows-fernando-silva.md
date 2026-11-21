@@ -10,6 +10,7 @@ format: "speech"
 inscriptionlink: "https://docs.google.com/forms/d/e/1FAIpQLSdUQ0MyyghPaSMOlnKiCHs7XgsAmjAZ2NZzUMiGeNbTBPOe1w/viewform"
 ispublic: true
 translationKey: "event_uma-espiada-no-kernel-do-windows-fernando-silva"
+series: "lics-enigma"
 ---
 
 **This talk will be held in Portuguese**

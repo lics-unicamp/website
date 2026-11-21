@@ -10,6 +10,7 @@ format: "speech"
 inscriptionlink: "https://docs.google.com/forms/d/e/1FAIpQLSdUQ0MyyghPaSMOlnKiCHs7XgsAmjAZ2NZzUMiGeNbTBPOe1w/viewform"
 ispublic: true
 translationKey: "event_lpi-security-essentials-uira-ribeiro"
+series: "lics-enigma"
 ---
 
 Temos a honra de receber Uirá Ribeiro, Chair of the Board of Directors do Linux Professional Institute (LPI), CEO da Certificação Linux e renomado especialista em DevOps e Linux.

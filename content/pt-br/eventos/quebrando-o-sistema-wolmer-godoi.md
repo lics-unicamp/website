@@ -10,6 +10,8 @@ format: "speech"
 inscriptionlink: ""
 ispublic: true
 translationKey: "event_quebrando-o-sistema-wolmer-godoi"
+series: "cyber-fest-2026"
+video: "I5PujBIyqHU"
 ---
 
 Temos a honra de receber Wolmer Godoi, executivo de cibersegurança (CISSP) com mais de 28 anos de experiência liderando portfólios de MSSP, SOC, GRC e Red Team pela América Latina e Europa.
