@@ -1,113 +1,59 @@
 {{ define "main" }}
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=VT323&display=swap"
-    rel="stylesheet" />
-<style>
-    /* Override baseof styles for article page */
-    body {
-        color: #fff !important;
-        font-family: 'Fira Code', monospace !important;
-    }
+{{- $pages := .CurrentSection.RegularPages.ByWeight -}}
+{{- $idx := -1 -}}
+{{- range $i, $p := $pages }}{{ if eq $p.RelPermalink $.RelPermalink }}{{ $idx = $i }}{{ end }}{{ end -}}
+{{- $prev := false -}}{{- $next := false -}}
+{{- if gt $idx 0 }}{{ $prev = index $pages (sub $idx 1) }}{{ end -}}
+{{- if and (ge $idx 0) (lt (add $idx 1) (len $pages)) }}{{ $next = index $pages (add $idx 1) }}{{ end -}}
+<main class="z-article-page">
+    <div class="z-crt">
+        <a class="z-logo-link" href="{{ .CurrentSection.RelPermalink }}">{{ partial "dump-zine/logo.html" . }}</a>
+        <p class="z-tagline">{{ T "dump-zine-a-lics-zine" }}</p>
+    </div>
 
-    .crt-effect::before {
-        content: " ";
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-        z-index: 2;
-        background-size: 100% 2px, 3px 100%;
-        pointer-events: none;
-    }
+    <article>
+        <header class="z-head">
+            <h1 class="z-title">{{ partial "dump-zine/title.html" . }}</h1>
+            {{- with .Params.author }}
+            {{- $member := site.GetPage (printf "/membros/%s" .) }}
+            <div>
+                {{- if $member }}
+                <a class="z-byline" href="{{ $member.RelPermalink }}">
+                    {{ partial "member-photo.html" (dict "page" $member "size" 32 "class" "") }}
+                    <span>{{ $member.Title }}</span>
+                </a>
+                {{- else }}
+                <span class="z-byline">{{ . }}</span>
+                {{- end }}
+            </div>
+            {{- end }}
+            <div class="z-meta">
+                {{- with .Params.edition }}DMP_{{ . }}{{ end }}
+                {{- if not .Date.IsZero }} · <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time>{{ end }}
+            </div>
+        </header>
 
-    .dump-content h2,
-    .dump-content h3 {
-        font-weight: bold;
-        color: #39ff14;
-        margin-bottom: 0.5rem;
-    }
+        {{- with .Fragments.Headings }}
+        <nav class="z-toc" aria-labelledby="toc-title">
+            <h2 class="z-toc-title" id="toc-title">--[ {{ T "dump-zine-toc" }}</h2>
+            {{ $.Fragments.ToHTML 2 2 false }}
+        </nav>
+        {{- end }}
 
-    .dump-content h2 {
-        margin-top: 1.5rem;
-    }
-
-    .dump-content p {
-        margin-bottom: 1rem;
-        color: #888888;
-    }
-
-    .dump-content ul {
-        list-style: none;
-        margin-left: 1rem;
-        color: #888888;
-    }
-
-    .dump-content li {
-        margin-bottom: 0.25rem;
-    }
-
-    .dump-content pre {
-        padding: 1rem;
-        background: #0a0a0a;
-        border: 1px dotted #888888;
-        color: #39ff14;
-        font-size: 0.875rem;
-        overflow-x: auto;
-    }
-
-    .dump-content code {
-        color: #39ff14;
-        font-size: 0.875rem;
-    }
-</style>
-
-<div class="crt-effect fixed inset-0 pointer-events-none"></div>
-
-<!-- Top-Right Navigation -->
-<div class="fixed top-4 right-4 z-50 flex flex-col items-end gap-1" style="font-size: 0.65rem;">
-    <a class="hover:text-white transition-colors" style="color: #39ff14;" href="/{{ .Lang }}/dump-zine/">[ capa ]</a>
-    {{ with .PrevInSection }}
-    <a class="hover:text-white transition-colors" style="color: #39ff14;" href="{{ .RelPermalink }}">[ Próximo > ]</a>
-    {{ end }}
-    {{ with .NextInSection }}
-    <a class="hover:text-white transition-colors" style="color: #39ff14;" href="{{ .RelPermalink }}">[ < Anterior ]</a>
-            {{ end }}
-</div>
-
-<main class="w-full max-w-4xl relative z-10 flex flex-col gap-8 mx-auto items-center">
-
-    <!-- Header -->
-    <header class="text-center select-none overflow-hidden flex flex-col items-center w-full mt-8">
-        <pre class="text-white text-sm sm:text-base md:text-lg leading-none tracking-tighter"
-            style="font-family: 'VT323', monospace;">  ___  _   _ __  __ ___ 
- |   \| | | |  \/  | _ \
- | |) | |_| | |\/| |  _/
- |___/ \___/|_|  |_|_|  </pre>
-        <p class="text-xs mt-2" style="color: #888;">{{ T "dump-zine-a-lics-zine" }}</p>
-    </header>
-
-    <!-- Article Header -->
-    <section class="flex flex-col gap-1 mx-auto w-full max-w-3xl text-sm sm:text-base text-center py-6">
-        <div class="text-white font-bold text-lg mb-2">{{ .Title }}</div>
-        <div style="color: #888;">{{ .Params.author }}</div>
-        <div style="color: #555;">{{ .Params.edition }}</div>
-    </section>
-
-    <!-- Article Content -->
-    <article
-        class="mx-auto w-full max-w-3xl flex flex-col gap-6 text-sm sm:text-base leading-relaxed text-white dump-content">
-        {{ .Content }}
+        <div class="z-content">
+            {{ .Content }}
+        </div>
     </article>
 
-    <!-- Footer -->
-    <footer class="mt-12 mb-8 border-t border-dashed pt-4 flex flex-col items-center gap-4 w-full max-w-4xl mx-auto"
-        style="border-color: #888;">
-        <div class="text-xs mt-4" style="color: #888;">
-            <div class="text-center">{{ T "dump-zine-footer-copyright" }}</div>
-        </div>
-    </footer>
+    <nav class="z-pager" aria-label="{{ T "dump-zine-pager" }}">
+        {{- with $prev }}
+        <a href="{{ .RelPermalink }}" rel="prev"><span class="z-pager-label">[ &lt; {{ T "dump-zine-nav-prev" }} ]</span>{{ partial "dump-zine/title.html" . }}</a>
+        {{- end }}
+        {{- with $next }}
+        <a class="z-pager-next" href="{{ .RelPermalink }}" rel="next"><span class="z-pager-label">[ {{ T "dump-zine-nav-next" }} &gt; ]</span>{{ partial "dump-zine/title.html" . }}</a>
+        {{- end }}
+    </nav>
 
+    {{ partial "dump-zine/footer.html" . }}
 </main>
 {{ end }}

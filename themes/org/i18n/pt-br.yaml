@@ -6,6 +6,7 @@ home-s1-p1: Preparando os futuros líderes em segurança cibernética
 home-s1-nav1: Membros
 home-s1-nav2: Sobre
 home-s1-nav3: Eventos
+home-s1-nav5: Artigos
 home-s1-nav4: Contato
 
 ###########
@@ -104,6 +105,17 @@ generic-last-updt: Última atualização
 #############
 dump-zine-a-lics-zine: "a LICS zine"
 dump-zine-nav-home: "home"
-dump-zine-nav-prev: "[ < Anterior ]"
-dump-zine-nav-next: "[ Próximo > ]"
-dump-zine-footer-copyright: "2026 DUMP."
+dump-zine-nav-cover: "capa"
+dump-zine-nav-prev: "Anterior"
+dump-zine-nav-next: "Próximo"
+dump-zine-pager: "Navegação entre artigos"
+dump-zine-toc: "Sumário"
+dump-zine-articles:
+  one: "{{ .Count }} artigo"
+  other: "{{ .Count }} artigos"
+dump-zine-editions:
+  one: "{{ .Count }} edição"
+  other: "{{ .Count }} edições"
+dump-zine-intro: "DUMP é a zine técnica da LICS. Cada artigo é escrito por alguém da liga sobre algo que estudou, quebrou ou construiu."
+dump-zine-empty: "Nenhum artigo publicado ainda."
+dump-zine-footer-copyright: "{{ .Year }} DUMP."

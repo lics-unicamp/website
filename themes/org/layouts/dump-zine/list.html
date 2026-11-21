@@ -1,114 +1,44 @@
 {{ define "main" }}
-<a href="/{{ .Lang }}/"
-    class="fixed top-4 left-4 z-50 text-primary/70 hover:text-primary text-xs tracking-widest transition-colors">[ home
-    ]</a>
-<div class="max-w-5xl mx-auto border border-primary/30 p-4 rounded-sm relative">
+{{- $articles := .RegularPages -}}
+{{- $editions := $articles.GroupByParam "edition" -}}
+<main class="z-frame">
+    <header>
+        <h1 class="visually-hidden">DUMP</h1>
+        {{ partial "dump-zine/logo.html" . }}
+        <p class="z-tagline">{{ T "dump-zine-a-lics-zine" }}</p>
+    </header>
 
-    <!-- Corner Borders -->
-    <div class="absolute top-0 left-0 w-4 h-4 border-t border-l border-primary/50"></div>
-    <div class="absolute top-0 right-0 w-4 h-4 border-t border-r border-primary/50"></div>
-    <div class="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-primary/50"></div>
-    <div class="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-primary/50"></div>
+    <p class="z-stats">
+        ~ ~ {{ T "dump-zine-articles" (len $articles) }} · {{ T "dump-zine-editions" (len $editions) }} ~ ~
+    </p>
 
-    <!-- ASCII Art Header -->
-    <div class="mb-8 overflow-x-auto flex flex-col items-center">
-        <pre class="ascii-art text-xs sm:text-sm md:text-base lg:text-lg mx-auto w-fit">
-██████╗ ██╗   ██╗███╗   ███╗██████╗ 
-██╔══██╗██║   ██║████╗ ████║██╔══██╗
-██║  ██║██║   ██║██╔████╔██║██████╔╝
-██║  ██║██║   ██║██║╚██╔╝██║██╔═══╝ 
-██████╔╝╚██████╔╝██║ ╚═╝ ██║██║     
-╚═════╝  ╚═════╝ ╚═╝     ╚═╝╚═╝     
-</pre>
-        <div class="text-center mt-4 text-primary font-bold tracking-widest">
-            {{ T "dump-zine-a-lics-zine" }}
-        </div>
+    <div class="z-intro">
+        <p class="z-status">&gt; EXFILTRATION IN PROGRESS... [100%]<br>&gt; DATA WRITTEN TO DUMP.ZINE</p>
+        <p>{{ T "dump-zine-intro" }}</p>
     </div>
 
-    <!-- Version Info -->
-    <div class="text-center text-primary/70 text-sm mb-6 flex items-center justify-center gap-2">
-        <span>~</span><span>~</span><span>~</span><span>~</span>
-        <span class="mx-2">Current Version: 1.0</span>
-        <span>01000100 / 01001100 bits</span>
-        <span>~</span><span>~</span><span>~</span><span>~</span>
-    </div>
+    {{- range $editions }}
+    <section class="z-edition" aria-labelledby="ed-{{ .Key | urlize }}">
+        <h2 class="z-edition-label" id="ed-{{ .Key | urlize }}">[ DMP_{{ .Key }} ]</h2>
+        <ul class="z-index">
+            {{- range .Pages.ByWeight }}
+            <li>
+                <a class="z-entry" href="{{ .RelPermalink }}">
+                    <span class="z-entry-row">
+                        <span class="z-entry-title">{{ partial "dump-zine/title.html" . }}</span>
+                        <span class="z-entry-dots" aria-hidden="true"></span>
+                        <span class="z-entry-meta">{{ partial "dump-zine/author-name.html" . }}</span>
+                    </span>
+                </a>
+            </li>
+            {{- end }}
+        </ul>
+        <p class="z-eof" aria-hidden="true">-- EOF --</p>
+    </section>
+    {{- else }}
+    <p class="z-empty">{{ T "dump-zine-empty" }}</p>
+    {{- end }}
 
-
-
-    <!-- Main Content Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
-
-        <!-- Left Decoration -->
-        <pre class="hidden md:block col-span-1 text-right text-primary/30 select-none">
-|
-|
-|
-*
-|
-|
-+--
-|
-|
-*
-</pre>
-
-        <!-- Center Content -->
-        <div class="col-span-1 md:col-span-10">
-            <div class="mb-10 text-primary/90 text-sm leading-relaxed max-w-3xl mx-auto">
-                <p class="mb-4">
-                    &gt; EXFILTRATION IN PROGRESS... [100%]
-                    &gt; DATA WRITTEN TO DUMP.ZINE
-                </p>
-                <p>
-                    DUMP. O vazamento deliberado do nosso cérebro coletivo. Assim como um alvo expõe seus segredos após
-                    a brecha, a LICS exfiltra o núcleo técnico de suas pesquisas e entrega a base de dados bruta para
-                    quem tem fome de bits.
-                </p>
-            </div>
-
-            <!-- Article Index -->
-            <div class="border border-primary/20 p-6 relative">
-                <div class="absolute -top-3 left-4 bg-background-light px-2 text-primary/70 text-sm">
-                    [ INDEX_0x01 ]
-                </div>
-                <div class="space-y-2 mt-2">
-                    {{ range .Pages }}
-                    <a class="block article-link" href="{{ .RelPermalink }}">
-                        <div class="article-list">
-                            <span class="article-title">{{ .Title }}</span>
-                            <span class="article-dots"></span>
-                            <span class="article-type">[.txt]</span>
-                        </div>
-                    </a>
-                    {{ end }}
-                </div>
-                <div class="mt-6 text-xs text-primary/50 text-right">
-                    -- EOF --
-                </div>
-            </div>
-        </div>
-
-        <!-- Right Decoration -->
-        <pre class="hidden md:block col-span-1 text-primary/30 select-none">
- |
- |
- |
- *
- |
- |
---+
- |
- |
- *
-</pre>
-    </div>
-
-    <!-- Footer -->
-    <div class="mt-12 text-center text-sm">
-        <div class="text-primary/40 text-xs">
-            {{ T "dump-zine-footer-copyright" }}
-        </div>
-    </div>
-
-</div>
+    {{ partial "dump-zine/footer.html" . }}
+</main>
 {{ end }}

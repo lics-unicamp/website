@@ -14,11 +14,12 @@ header:
   - identifier: contact
     name: Contato
     url: /pt-br/contato/
-    weight: 5
-  - identifier: dump-zine
-    name: Artigos
-    url: /pt-br/dump-zine/
     weight: 4
+  # DUMP zine link hidden until launch:
+  # - identifier: dump-zine
+  #   name: Artigos
+  #   url: /pt-br/dump-zine/
+  #   weight: 4
 
 legal:
   - identifier: privacy

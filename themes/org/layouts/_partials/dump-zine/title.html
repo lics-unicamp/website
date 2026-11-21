@@ -1,0 +1,2 @@
+{{- /* Title with a line-break opportunity after each underscore, so 0x02_Long_Title wraps between words on small screens */ -}}
+{{- replace (.Title | htmlEscape) "_" "_<wbr>" | safeHTML -}}

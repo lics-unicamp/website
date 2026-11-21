@@ -1,0 +1,24 @@
+{{- /* Fixed top bar: back to the main site, cover link, and language switch */ -}}
+{{- $page := . -}}
+{{- $section := site.GetPage "/dump-zine" -}}
+<nav class="z-bar" aria-label="DUMP">
+    <div class="z-bar-group">
+        <a href="{{ site.Home.RelPermalink }}">[ {{ T "dump-zine-nav-home" }} ]</a>
+        {{- if $page.IsPage }}
+        <a href="{{ $section.RelPermalink }}">[ {{ T "dump-zine-nav-cover" }} ]</a>
+        {{- end }}
+    </div>
+    <div class="z-bar-group">
+        {{- range site.Languages }}
+            {{- $lang := .Lang -}}
+            {{- $short := index (split $lang "-") 0 -}}
+            {{- if eq $lang $page.Lang }}
+        <a href="{{ $page.RelPermalink }}" aria-current="page" lang="{{ $lang }}">[ {{ $short }} ]</a>
+            {{- else }}
+                {{- $target := printf "/%s/dump-zine/" $lang -}}
+                {{- range $page.Translations }}{{ if eq .Lang $lang }}{{ $target = .RelPermalink }}{{ end }}{{ end }}
+        <a href="{{ $target }}" hreflang="{{ $lang }}" lang="{{ $lang }}">{{ $short }}</a>
+            {{- end }}
+        {{- end }}
+    </div>
+</nav>

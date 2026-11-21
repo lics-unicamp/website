@@ -1,4 +1,4 @@
 ---
 title: "DUMP Zine"
-description: "A repository of forgotten knowledge, zero-days, and digital artifacts."
+description: "A zine técnica da LICS: artigos curtos sobre hacking, com código para reproduzir."
 ---
