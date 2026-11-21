@@ -1,0 +1,59 @@
+{{ define "main" }}
+{{- $pages := .CurrentSection.RegularPages.ByWeight -}}
+{{- $idx := -1 -}}
+{{- range $i, $p := $pages }}{{ if eq $p.RelPermalink $.RelPermalink }}{{ $idx = $i }}{{ end }}{{ end -}}
+{{- $prev := false -}}{{- $next := false -}}
+{{- if gt $idx 0 }}{{ $prev = index $pages (sub $idx 1) }}{{ end -}}
+{{- if and (ge $idx 0) (lt (add $idx 1) (len $pages)) }}{{ $next = index $pages (add $idx 1) }}{{ end -}}
+<main class="z-article-page">
+    <div class="z-crt">
+        <a class="z-logo-link" href="{{ .CurrentSection.RelPermalink }}">{{ partial "dump-zine/logo.html" . }}</a>
+        <p class="z-tagline">{{ T "dump-zine-a-lics-zine" }}</p>
+    </div>
+
+    <article>
+        <header class="z-head">
+            <h1 class="z-title">{{ partial "dump-zine/title.html" . }}</h1>
+            {{- with .Params.author }}
+            {{- $member := site.GetPage (printf "/membros/%s" .) }}
+            <div>
+                {{- if $member }}
+                <a class="z-byline" href="{{ $member.RelPermalink }}">
+                    {{ partial "member-photo.html" (dict "page" $member "size" 32 "class" "") }}
+                    <span>{{ $member.Title }}</span>
+                </a>
+                {{- else }}
+                <span class="z-byline">{{ . }}</span>
+                {{- end }}
+            </div>
+            {{- end }}
+            <div class="z-meta">
+                {{- with .Params.edition }}DMP_{{ . }}{{ end }}
+                {{- if not .Date.IsZero }} · <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time>{{ end }}
+            </div>
+        </header>
+
+        {{- with .Fragments.Headings }}
+        <nav class="z-toc" aria-labelledby="toc-title">
+            <h2 class="z-toc-title" id="toc-title">--[ {{ T "dump-zine-toc" }}</h2>
+            {{ $.Fragments.ToHTML 2 2 false }}
+        </nav>
+        {{- end }}
+
+        <div class="z-content">
+            {{ .Content }}
+        </div>
+    </article>
+
+    <nav class="z-pager" aria-label="{{ T "dump-zine-pager" }}">
+        {{- with $prev }}
+        <a href="{{ .RelPermalink }}" rel="prev"><span class="z-pager-label">[ &lt; {{ T "dump-zine-nav-prev" }} ]</span>{{ partial "dump-zine/title.html" . }}</a>
+        {{- end }}
+        {{- with $next }}
+        <a class="z-pager-next" href="{{ .RelPermalink }}" rel="next"><span class="z-pager-label">[ {{ T "dump-zine-nav-next" }} &gt; ]</span>{{ partial "dump-zine/title.html" . }}</a>
+        {{- end }}
+    </nav>
+
+    {{ partial "dump-zine/footer.html" . }}
+</main>
+{{ end }}

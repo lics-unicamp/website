@@ -1,0 +1,44 @@
+{{ define "main" }}
+{{- $articles := .RegularPages -}}
+{{- $editions := $articles.GroupByParam "edition" -}}
+<main class="z-frame">
+    <header>
+        <h1 class="visually-hidden">DUMP</h1>
+        {{ partial "dump-zine/logo.html" . }}
+        <p class="z-tagline">{{ T "dump-zine-a-lics-zine" }}</p>
+    </header>
+
+    <p class="z-stats">
+        ~ ~ {{ T "dump-zine-articles" (len $articles) }} · {{ T "dump-zine-editions" (len $editions) }} ~ ~
+    </p>
+
+    <div class="z-intro">
+        <p class="z-status">&gt; EXFILTRATION IN PROGRESS... [100%]<br>&gt; DATA WRITTEN TO DUMP.ZINE</p>
+        <p>{{ T "dump-zine-intro" }}</p>
+    </div>
+
+    {{- range $editions }}
+    <section class="z-edition" aria-labelledby="ed-{{ .Key | urlize }}">
+        <h2 class="z-edition-label" id="ed-{{ .Key | urlize }}">[ DMP_{{ .Key }} ]</h2>
+        <ul class="z-index">
+            {{- range .Pages.ByWeight }}
+            <li>
+                <a class="z-entry" href="{{ .RelPermalink }}">
+                    <span class="z-entry-row">
+                        <span class="z-entry-title">{{ partial "dump-zine/title.html" . }}</span>
+                        <span class="z-entry-dots" aria-hidden="true"></span>
+                        <span class="z-entry-meta">{{ partial "dump-zine/author-name.html" . }}</span>
+                    </span>
+                </a>
+            </li>
+            {{- end }}
+        </ul>
+        <p class="z-eof" aria-hidden="true">-- EOF --</p>
+    </section>
+    {{- else }}
+    <p class="z-empty">{{ T "dump-zine-empty" }}</p>
+    {{- end }}
+
+    {{ partial "dump-zine/footer.html" . }}
+</main>
+{{ end }}

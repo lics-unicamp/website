@@ -1,0 +1,4 @@
+{{- /* Author display name: `author` is a member slug (content/<lang>/membros/<slug>.md); falls back to raw text */ -}}
+{{- with .Params.author -}}
+  {{- with site.GetPage (printf "/membros/%s" .) -}}{{ .Title }}{{- else -}}{{ . }}{{- end -}}
+{{- end -}}

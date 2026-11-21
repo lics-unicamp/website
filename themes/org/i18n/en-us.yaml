@@ -6,6 +6,7 @@ home-s1-p1: Preparing future leaders in cybersecurity
 home-s1-nav1: Members  
 home-s1-nav2: About  
 home-s1-nav3: Events  
+home-s1-nav5: Articles
 home-s1-nav4: Contact  
 
 ###########
@@ -98,3 +99,23 @@ partial-roles-op5: Associate
 # Generic #
 ###########
 generic-last-updt: Last update
+
+#############
+# DUMP Zine #
+#############
+dump-zine-a-lics-zine: "a LICS zine"
+dump-zine-nav-home: "home"
+dump-zine-nav-cover: "cover"
+dump-zine-nav-prev: "Previous"
+dump-zine-nav-next: "Next"
+dump-zine-pager: "Article navigation"
+dump-zine-toc: "Contents"
+dump-zine-articles:
+  one: "{{ .Count }} article"
+  other: "{{ .Count }} articles"
+dump-zine-editions:
+  one: "{{ .Count }} edition"
+  other: "{{ .Count }} editions"
+dump-zine-intro: "DUMP is the LICS technical zine. Each article is written by a league member about something they studied, broke or built."
+dump-zine-empty: "No articles published yet."
+dump-zine-footer-copyright: "{{ .Year }} DUMP."
