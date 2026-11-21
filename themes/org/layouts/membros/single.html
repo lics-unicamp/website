@@ -43,16 +43,25 @@
             {{ range .Params.badges }}{{ if ne . "" }}{{ $badges = $badges | append . }}{{ end }}{{ end }}
             {{ with $badges }}
             <div class="col-12 col-lg-4">
-                <div class="card bg-secondary align-self-center d-flex align-items-center">
-                    <div class="w-100 card-body">
-                        <p class="mx-2 d-lg-none card-title h4 text-center ">{{ T "members-single-s2-h1"}}</p>
-                        <p class="mx-2 d-none d-lg-block card-title h4">{{ T "members-single-s2-h1"}}</p>
-                        <div class="w-100">
+                <div class="card bg-secondary">
+                    <div class="card-body">
+                        <h2 class="card-title h4 d-flex align-items-baseline gap-2 mb-3">
+                            {{ T "members-single-s2-h1" }}
+                            <span class="cust-count fs-6">{{ len . }}</span>
+                        </h2>
+                        <ul class="list-unstyled m-0 d-flex flex-column gap-2">
                             {{ range . }}
-                                {{ $badge := index $data_index.badges . }}
-                                <img class="m-1" height="50px" width="50px" src="/media/images/badges/{{ $badge.icon }}" data-bs-toggle="tooltip" title="{{ $badge.title }}" alt="{{ $badge.title }}">
+                            {{ with index $data_index.badges . }}
+                            <li class="cust-achievement d-flex align-items-center gap-3 p-2 rounded">
+                                <img class="cust-achievement-icon" height="48" width="48" src="/media/images/badges/{{ .icon }}" alt="" loading="lazy">
+                                <div>
+                                    <p class="m-0 fw-semibold">{{ .title }}</p>
+                                    {{ with .description }}<p class="m-0 small cust-achievement-desc">{{ . }}</p>{{ end }}
+                                </div>
+                            </li>
                             {{ end }}
-                        </div>
+                            {{ end }}
+                        </ul>
                     </div>
                 </div>
             </div>
