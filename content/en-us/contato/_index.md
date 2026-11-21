@@ -1,6 +1,7 @@
 ---
 title: "Contact"
-description: "Contact"
+description: "Talk to LICS about the selection process, talks, events or partnerships."
 translationKey: "contact"
 ---
-Feel free to contact us with questions, suggestions, or to establish a partnership. We will get back to you as soon as possible.
+
+Want to join the league, give a talk, propose an event or support LICS? Send a message through the form: it goes to the board, and we reply to the email you give us.

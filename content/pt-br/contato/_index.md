@@ -1,6 +1,7 @@
 ---
 title: "Contato"
-description: "Contato"
+description: "Fale com a LICS sobre o processo seletivo, palestras, eventos ou parcerias."
 translationKey: "contact"
 ---
-Fique à vontade para nos contatar com dúvidas, sugestões ou para estabelecer uma parceria. Entraremos em contato o mais breve possível.
+
+Quer entrar na liga, palestrar, propor um evento ou apoiar a LICS? Mande uma mensagem pelo formulário: ela chega à diretoria, e respondemos no e-mail que você informar.

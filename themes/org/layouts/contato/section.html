@@ -1,172 +1,267 @@
 {{ define "main" }}
-{{ $data_index := index site.Data site.Language.Lang }}
-{{- $contentChildren := split .Content "<p>#|break|#</p>" -}}
+{{- $data := index site.Data site.Language.Lang -}}
+{{- $social := site.Data.social -}}
+{{- $privacy := index (where site.RegularPages "Params.translationKey" "privacy-policy") 0 -}}
+{{- $email := "lics@unicamp.br" -}}
+
 <section class="bg-black">
     <div style="height: {{ .Site.Params.spacing_size }};"></div>
     <div style="height: {{ .Site.Params.spacing_size }};"></div>
     <div class="container">
-        <div class="row g-4">
-            <div class="col-12 col-md-6">
-                <h1 class="mb-4 text-primary">{{ .Title }}</h1>
-                <div>
-                    {{- index $contentChildren 0 | safeHTML  -}}
-                </div>
+        {{- /* Grid areas: desktop puts the form on the right of intro + help; phones get intro, form, then help */}}
+        <div class="cust-contact-grid">
+            <div class="cust-contact-intro">
+                <h1 class="text-primary">{{ .Title }}</h1>
+                <div class="cust-contact-lead">{{ .Content }}</div>
+
             </div>
-            <div class="col-12 col-md-6">
-                <div id="alertMessage" class="alert d-none" role="alert"></div>
-                <form class="mt-4 mt-xl-0" id="contactForm" onsubmit="submitForm(event)">
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="nome" placeholder='{{ T "contact-form-fd1" }} *' name="entry.2126993480" required>
-                                <label for="nome">{{ T "contact-form-fd1" }} *</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="sobrenome" placeholder='{{ T "contact-form-fd2" }} *' name="entry.489689806" required>
-                                <label for="sobrenome">{{ T "contact-form-fd2" }} *</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <input type="email" class="form-control" id="email" placeholder='{{ T "contact-form-fd3" }} *' name="entry.903872647" required>
-                                <label for="email">{{ T "contact-form-fd3" }} *</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <input type="tel" class="form-control" id="telefone" placeholder='{{ T "contact-form-fd4" }}' name="entry.317166107">
-                                <label for="telefone">{{ T "contact-form-fd4" }}</label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-floating">
-                                <select class="form-select" id="assunto" required aria-label="{{ T "contact-form-fd5" }}" name="entry.726047374">
-                                    <option value="" disabled selected>{{ T "contact-form-select" }}</option>
-                                    {{ $data_index := index site.Data site.Language.Lang }}
-                                    {{ range $index, $data := $data_index.contact.form_topics }}
-                                    <option value="{{ .value }}">{{ .name }}</option>
-                                    {{ end }}
-                                </select>
-                                <label for="assunto">{{ T "contact-form-fd5" }} *</label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-floating">
-                                <textarea class="form-control" id="descricao" placeholder='{{ T "contact-form-fd6" }} *' style="height: 150px;" name="entry.1305457940" required></textarea>
-                                <label for="descricao">{{ T "contact-form-fd6" }} *</label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="privacidade" name="entry.1304611298" value="sim" required>
-                                <label class="form-check-label" for="privacidade">
-                                    {{ T "contact-form-ck1" }} *
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="mkt" value="sim">
-                                <label class="form-check-label" for="mkt" name="entry.328030185">
-                                    {{ T "contact-form-ck2" }}
-                                </label>
-                            </div>
-                        </div>
-                        <input type="hidden" id="language" name="entry.403390572" value="{{ .Lang }}">
-                        <div class="col-12 mt-3">
-                            <button type="submit" class="btn btn-primary w-100">{{ T "contact-form-btn1" }}</button>
-                        </div>
+            <div class="cust-contact-aside">
+                <h2 class="cust-contact-h2">{{ T "contact-help-h2" }}</h2>
+                <dl class="cust-contact-help">
+                    <div>
+                        <dt>{{ T "contact-help-join" }}</dt>
+                        <dd>{{ T "contact-help-join-p" }}</dd>
                     </div>
-                </form>
+                    <div>
+                        <dt>{{ T "contact-help-event" }}</dt>
+                        <dd>{{ T "contact-help-event-p" }}</dd>
+                    </div>
+                    <div>
+                        <dt>{{ T "contact-help-partner" }}</dt>
+                        <dd>{{ T "contact-help-partner-p" }}</dd>
+                    </div>
+                </dl>
+
+                <h2 class="cust-contact-h2">{{ T "contact-channels-h2" }}</h2>
+                <ul class="cust-contact-channels list-unstyled">
+                    <li><a href="mailto:{{ $email }}"><span class="bi bi-envelope" aria-hidden="true"></span>{{ $email }}</a></li>
+                    {{- with $social }}
+                    <li><a href="{{ .instagram.url }}"><span class="bi bi-instagram" aria-hidden="true"></span>Instagram</a></li>
+                    <li><a href="{{ .linkedin.url }}"><span class="bi bi-linkedin" aria-hidden="true"></span>LinkedIn</a></li>
+                    <li><a href="{{ .youtube.url }}"><span class="bi bi-youtube" aria-hidden="true"></span>YouTube</a></li>
+                    {{- end }}
+                </ul>
+            </div>
+            <div class="cust-contact-main">
+                <div class="cust-contact-card">
+                    <h2 class="cust-contact-form-title">{{ T "contact-form-h2" }}</h2>
+
+                    <form id="contactForm" novalidate>
+                        {{- /* Field names are the Google Form's entry ids; changing them breaks submissions */}}
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label class="form-label" for="nome">{{ T "contact-form-fd1" }}</label>
+                                <input type="text" class="form-control" id="nome" name="entry.2126993480" autocomplete="given-name" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label" for="sobrenome">{{ T "contact-form-fd2" }}</label>
+                                <input type="text" class="form-control" id="sobrenome" name="entry.489689806" autocomplete="family-name" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label" for="email">{{ T "contact-form-fd3" }}</label>
+                                <input type="email" class="form-control" id="email" name="entry.903872647" autocomplete="email" inputmode="email" required aria-describedby="email-error">
+                                <p class="cust-field-error" id="email-error" hidden>{{ T "contact-form-invalid-email" }}</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label" for="telefone">{{ T "contact-form-fd4" }} <span class="cust-optional">{{ T "contact-form-optional" }}</span></label>
+                                <input type="tel" class="form-control" id="telefone" name="entry.317166107" autocomplete="tel" inputmode="tel">
+                            </div>
+
+                            <div class="col-12">
+                            <fieldset class="cust-topics">
+                                <legend class="form-label cust-legend">{{ T "contact-form-fd5" }}</legend>
+                                <div class="cust-topic-options">
+                                    {{- range $data.contact.form_topics }}
+                                    <label class="cust-topic">
+                                        <input type="radio" name="topic" value="{{ .key }}" data-send="{{ .value }}" data-label="{{ .label }}" data-hint="{{ .hint }}" required>
+                                        <span>{{ .label }}</span>
+                                    </label>
+                                    {{- end }}
+                                </div>
+                                <input type="hidden" name="entry.726047374" id="assunto">
+                                <p class="cust-field-error" id="topic-error" hidden>{{ T "contact-form-topic-required" }}</p>
+                            </fieldset>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label" for="descricao">{{ T "contact-form-fd6" }}</label>
+                                <p class="cust-field-hint" id="message-hint">{{ T "contact-form-hint-default" }}</p>
+                                <textarea class="form-control" id="descricao" rows="6" name="entry.1305457940" required aria-describedby="message-hint"></textarea>
+                            </div>
+
+                            {{- /* Spam trap: hidden from people, bots fill it in. Not sent to the form. */}}
+                            <div class="cust-trap" aria-hidden="true">
+                                <label for="website">Website</label>
+                                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="privacidade" name="entry.1304611298" value="sim" required>
+                                    <label class="form-check-label" for="privacidade">
+                                        {{- with $privacy }}{{ T "contact-form-ck1" (dict "Policy" (printf `<a href="%s">%s</a>` .RelPermalink (T "contact-form-ck1-link"))) | safeHTML }}{{ end -}}
+                                    </label>
+                                </div>
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" id="mkt" name="entry.328030185" value="sim">
+                                    <label class="form-check-label" for="mkt">{{ T "contact-form-ck2" }}</label>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="entry.403390572" value="{{ .Lang }}">
+
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-lg w-100" id="contactSubmit">
+                                    <span class="cust-submit-idle">{{ T "contact-form-btn1" }}</span>
+                                    <span class="cust-submit-busy" hidden><span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>{{ T "contact-form-sending" }}</span>
+                                </button>
+                                <p class="cust-form-alert" id="contactAlert" role="alert" hidden></p>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="cust-contact-done" id="contactDone" hidden tabindex="-1">
+                        <span class="bi bi-check-circle" aria-hidden="true"></span>
+                        <h2>{{ T "contact-done-h2" }}</h2>
+                        <p>{{ T "contact-done-p" (dict "Email" (printf `<a href="mailto:%s">%s</a>` $email $email)) | safeHTML }}</p>
+                        <button type="button" class="btn btn-outline-light" id="contactAgain">{{ T "contact-done-again" }}</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div style="height: {{ .Site.Params.spacing_size }};"></div>
 </section>
-<section class="bg-black">
-    <div style="height: {{ .Site.Params.spacing_size }};"></div>
-        <div class="container py-5 px-4 px-sm-5 rounded bg-military-black d-flex flex-column align-items-center">
-            <h2 class="mb-4 text-center text-primary fs-1">{{ T "contact-s2-h1" }}</h2>
-            <p class="mb-5 text-center" style="max-width: 800px;">{{ T "contact-s2-p1" }}</p>
-            <div class="w-100 position-relative" style="height: 500px;">
-                <div class="start-0 top-0 placeholder-glow" id="gmaps-placeholder">
-                    <div class="placeholder w-100 bg-secondary" style="height: 500px;"></div>
-                </div>
-                <iframe id="gmaps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1655.605082982017!2d-47.425175445094425!3d-22.56252228282793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8806cf1fc392d%3A0xf7f5dbc6128be719!2sFaculdade%20de%20Tecnologia%20da%20Universidade%20Estadual%20de%20Campinas%20(FT%2FUNICAMP)!5e0!3m2!1spt-BR!2sfr!4v1747412767411!5m2!1spt-BR!2sfr"
-                        width="100%" height="500" class="z-1 start-0 top-0 position-absolute" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    Loading...
-                </iframe>
+
+<section class="bg-black cust-contact-where" aria-labelledby="contact-where">
+    <div class="container">
+        <div class="row gx-4 gx-xl-5 gy-4 align-items-center">
+            <div class="col-12 col-lg-5">
+                <h2 id="contact-where" class="cust-contact-h2 mt-0">{{ T "contact-s2-h1" }}</h2>
+                <address class="cust-contact-address">
+                    {{ T "contact-address-1" }}<br>
+                    {{ T "contact-address-2" }}<br>
+                    {{ T "contact-address-3" }}
+                </address>
+                <p class="cust-contact-muted">{{ T "contact-s2-p1" }}</p>
+                <a class="cust-contact-link" href="https://www.google.com/maps/search/?api=1&amp;query=Faculdade+de+Tecnologia+UNICAMP+Limeira">{{ T "contact-map-open" }}</a>
             </div>
-        </div>
-    <div style="height: {{ .Site.Params.spacing_size }};"></div>
-</section>
-<section class="bg-black">
-    <div style="height: {{ .Site.Params.spacing_size }};"></div>
-    <div class="container d-flex flex-column align-items-center">
-        <h2 class="mb-4 fs-1 text-center text-primary">{{ T "about-s3-h1" }}</h2>
-        <div class="d-flex flex-wrap align-items-center justify-content-center">
-            {{ range $data_index.about.partners }}
-                <div class="m-2 bg-white rounded">
-                    <a class="d-block" href="{{ .link }}"><img class="p-2" style="height: 150px; width: 150px; object-fit: contain;" src="/media/images/partners/{{ .logo }}" data-bs-toggle="tooltip" title="{{ .name }}" alt="{{ .name }}"></a>
+            <div class="col-12 col-lg-7">
+                {{- /* Map loads only on request, so Google Maps sets no cookies for visitors who don't need it */}}
+                <div class="cust-map">
+                    <button type="button" class="cust-map-load" id="mapLoad">
+                        <span class="bi bi-geo-alt" aria-hidden="true"></span>
+                        <span>{{ T "contact-map-show" }}</span>
+                    </button>
                 </div>
-            {{ end }}
+            </div>
         </div>
     </div>
     <div style="height: {{ .Site.Params.spacing_size }};"></div>
 </section>
 
 <script>
-    async function submitForm(event) {
-        event.preventDefault();
+    (function () {
+        var FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc7MIuN9YwON3ZUPjt29isFus-LTBA-MJ_IdW2Aeog_PJ3ivg/formResponse';
+        var MAP_URL = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1655.605082982017!2d-47.425175445094425!3d-22.56252228282793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8806cf1fc392d%3A0xf7f5dbc6128be719!2sFaculdade%20de%20Tecnologia%20da%20Universidade%20Estadual%20de%20Campinas%20(FT%2FUNICAMP)!5e0!3m2!1s{{ .Lang }}!2sbr';
+        var form = document.getElementById('contactForm');
+        var done = document.getElementById('contactDone');
+        var alertBox = document.getElementById('contactAlert');
+        var submit = document.getElementById('contactSubmit');
+        var hint = document.getElementById('message-hint');
+        var defaultHint = hint.textContent;
+        var emailError = document.getElementById('email-error');
+        var topicError = document.getElementById('topic-error');
 
-        const alertMessage = document.getElementById("alertMessage");
-        alertMessage.classList.add("d-none");
+        form.querySelectorAll('input[name="topic"]').forEach(function (radio) {
+            radio.addEventListener('change', function () {
+                hint.textContent = radio.dataset.hint || defaultHint;
+                topicError.hidden = true;
+            });
+        });
 
-        const formData = new FormData(event.target);
-
-        // Validate email
-        const email = formData.get("entry.903872647") || "";
-        const emailRegex = /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/;
-        if (!emailRegex.test(email)) {
-            showAlert('{{ T "contact-form-invalid-email"}}', "danger");
-            return;
+        function setBusy(busy) {
+            submit.disabled = busy;
+            submit.querySelector('.cust-submit-idle').hidden = busy;
+            submit.querySelector('.cust-submit-busy').hidden = !busy;
         }
 
-        // Validate telefone (remove non-digit characters)
-        let telefone = formData.get("entry.317166107") || "";
-        telefone = telefone.replace(/\D/g, ""); 
-        formData.set("entry.317166107", telefone);
+        function showAlert(message) {
+            alertBox.textContent = message;
+            alertBox.hidden = false;
+        }
 
-        // Convert form data to JSON
-        const jsonData = Object.fromEntries(formData.entries());
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            alertBox.hidden = true;
 
-        // Send POST request
-        fetch("https://docs.google.com/forms/d/e/1FAIpQLSc7MIuN9YwON3ZUPjt29isFus-LTBA-MJ_IdW2Aeog_PJ3ivg/formResponse", {  // Replace with your API endpoint
-            method: "POST",
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: new URLSearchParams(formData).toString(),
-        })
-        .then(data => {
-            showAlert('{{ T "contact-form-msg-success" }}', "success");
-        })
-        .catch(error => {
-            showAlert('{{ T "contact-form-msg-error" }}', "danger");
-            console.error("Error:", error);
+            var email = form.elements['entry.903872647'];
+            var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim());
+            emailError.hidden = emailOk;
+            email.setAttribute('aria-invalid', String(!emailOk));
+            email.setCustomValidity(emailOk ? '' : 'invalid');
+
+            var topic = form.querySelector('input[name="topic"]:checked');
+            topicError.hidden = !!topic;
+
+            if (!emailOk || !topic || !form.checkValidity()) {
+                form.classList.add('was-validated');
+                /* Focus the first problem in reading order */
+                var firstBad = form.querySelector(':invalid');
+                if (firstBad) { firstBad.focus(); }
+                return;
+            }
+
+            /* Bots fill the hidden field: pretend it worked and send nothing */
+            if (form.elements.website.value) {
+                form.hidden = true; done.hidden = false; return;
+            }
+
+            var data = new FormData(form);
+            data.delete('topic');
+            data.delete('website');
+            data.set('entry.726047374', topic.dataset.send);
+            data.set('entry.317166107', (data.get('entry.317166107') || '').replace(/\D/g, ''));
+            /* Topics without their own option in the Google Form go as "other": keep what the visitor picked */
+            if (topic.dataset.send === 'other' && topic.value !== 'other') {
+                data.set('entry.1305457940', '[' + topic.dataset.label + ']\n\n' + data.get('entry.1305457940'));
+            }
+
+            setBusy(true);
+            /* Google Forms doesn't allow reading the reply (no-cors): only network failures can be detected here */
+            fetch(FORM_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(data).toString()
+            }).then(function () {
+                form.reset();
+                form.classList.remove('was-validated');
+                hint.textContent = defaultHint;
+                form.hidden = true;
+                done.hidden = false;
+                done.focus();
+            }).catch(function () {
+                showAlert('{{ T "contact-form-msg-error" }}');
+            }).finally(function () {
+                setBusy(false);
+            });
         });
-        document.getElementById('contactForm').reset();
-    }
 
-    // Function to show Bootstrap alert
-    function showAlert(message, type) {
-        const alertMessage = document.getElementById("alertMessage");
-        alertMessage.textContent = message;
-        alertMessage.className = `alert alert-${type} mt-3`;
-        alertMessage.classList.remove("d-none");
-    }
+        document.getElementById('contactAgain').addEventListener('click', function () {
+            done.hidden = true;
+            form.hidden = false;
+            form.elements['entry.2126993480'].focus();
+        });
+
+        document.getElementById('mapLoad').addEventListener('click', function () {
+            var frame = document.createElement('iframe');
+            frame.src = MAP_URL;
+            frame.title = '{{ T "contact-map-title" }}';
+            frame.loading = 'lazy';
+            frame.referrerPolicy = 'no-referrer-when-downgrade';
+            frame.allowFullscreen = true;
+            this.replaceWith(frame);
+        });
+    })();
 </script>
 {{ end }}

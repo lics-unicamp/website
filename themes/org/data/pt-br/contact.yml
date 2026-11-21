@@ -1,14 +1,29 @@
+# Contact form topics.
+# `value` is what the Google Form receives in "assunto": it must be one of its options
+# (event, partnership-company, partnership-ngo, partnership-government, other).
+# `label` and `hint` are what the visitor sees; topics sent as "other" get the label prefixed to the message.
 form_topics:
-  - name: Quero fazer parte
-    value: new-member
-  - name: Quero fazer um evento
-    value: event
-  - name: Parceria com empresas
-    value: partnership-company
-  - name: Parceria com ONGs
-    value: partnership-ngo
-  - name: Parceria com governo
-    value: partnership-government
-  - name: Outro
+  - key: join
     value: other
-  
+    label: Quero entrar na LICS
+    hint: "Os processos seletivos são abertos a alunos da UNICAMP e divulgados nas nossas redes. Conte seu curso e o que te interessa em segurança."
+  - key: event
+    value: event
+    label: Palestrar ou propor um evento
+    hint: "Conte o tema, o formato (palestra, workshop, CTF), datas possíveis e se seria presencial ou online."
+  - key: partnership-company
+    value: partnership-company
+    label: Parceria com empresa
+    hint: "Conte o que a empresa tem em mente: apoio a eventos, palestras, treinamentos ou outro formato."
+  - key: partnership-ngo
+    value: partnership-ngo
+    label: Parceria com ONG
+    hint: "Conte sobre a organização e a ideia de parceria."
+  - key: partnership-government
+    value: partnership-government
+    label: Parceria com órgão público
+    hint: "Conte sobre o órgão e a ideia de parceria."
+  - key: other
+    value: other
+    label: Outro assunto
+    hint: "Escreva sua dúvida, sugestão ou pedido."
